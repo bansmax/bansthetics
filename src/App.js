@@ -1258,12 +1258,12 @@ const DayCard = ({ dayPlan, handleGenerateMoreExercises, currentInputs }) => { /
     const fetchApiData = async (prompt) => {
         const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
         const apiKey = ""; // API key is handled by the environment
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+        const apiUrl = '/.netlify/functions/generate';
 
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body: JSON.stringify({ prompt: prompt })
         });
 
         if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
