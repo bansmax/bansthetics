@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, ChevronUp, Dumbbell, Zap, Clock, LayoutDashboard, ListChecks, Search, X, Menu, ShieldCheck, Target, Repeat, PlayCircle, Info, Brain, Sparkles, Loader2, FilterX, CalendarDays, Footprints, Weight, StretchHorizontal, Moon, ListPlus, SlidersHorizontal, Save, MessageSquare, Trash2, Star, Sun, RefreshCw, HelpCircle } from 'lucide-react';
+import { ChevronDown, ChevronUp, Dumbbell, Zap, Clock, LayoutDashboard, ListChecks, Search, X, Menu, ShieldCheck, Target, Repeat, PlayCircle, Info, Brain, Sparkles, Loader2, FilterX, CalendarDays, Footprints, Weight, StretchHorizontal, Moon, ListPlus, SlidersHorizontal, Save, MessageSquare, Trash2, Star, Sun, RefreshCw, HelpCircle, ChevronLeft } from 'lucide-react';
 
 // Options for AI Planner
 const categorizedSportsOptions = [
