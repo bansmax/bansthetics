@@ -14,7 +14,7 @@ const categorizedSportsOptions = [
   { category: "Recovery & Wellness", options: ["Active Recovery Focus"] }
 ];
 
-const muscleGroupOptions = ['Full Body', 'Upper Body', 'Lower Body', 'Legs', 'Chest', 'Back', 'Shoulders', 'Arms', 'Core'];
+const muscleGroupOptions = ['Full Body', 'Legs', 'Chest', 'Back', 'Shoulders', 'Arms', 'Core'];
 const runningGoalOptions = ['Maintain Current Fitness', 'Improve 5km Time', 'Improve 10km Time', 'Train for Half Marathon (21.1km)', 'Train for Marathon (42.2km)', 'Build Base Mileage (General Endurance)'];
 
 // --- Detailed Exercise Examples ---
@@ -27,58 +27,66 @@ const exerciseDatabase = {
             { name: 'Standing Barbell Overhead Press', sets: '4-5', reps: '3-5', rest: '120-180s', note: "Brace core, glutes tight. Full lockout." },
             { name: 'Weighted Pull-ups (or Lat Pulldowns if needed)', sets: '3-4', reps: '4-8', rest: '90-120s', note: "Full range of motion, focus on back engagement." },
             { name: 'Barbell Rows (Pendlay or Yates)', sets: '3-4', reps: '5-8', rest: '90-120s', note: "Maintain a strict torso angle, pull to lower chest/upper abs." },
-        ],
-        'Upper Body': [ 
-            { name: 'Flat Barbell Bench Press', sets: '3-4', reps: '4-6', rest: '120s', target: 'Chest, Shoulders, Triceps' },
-            { name: 'Weighted Pull-ups / Lat Pulldowns', sets: '3-4', reps: '5-8', rest: '120s', target: 'Back, Biceps' },
-            { name: 'Standing Barbell Overhead Press', sets: '3-4', reps: '4-6', rest: '120s', target: 'Shoulders, Triceps' },
-            { name: 'Barbell Rows', sets: '3-4', reps: '6-10', rest: '90s', target: 'Back, Biceps' },
-            { name: 'Dumbbell Incline Press', sets: '3', reps: '6-10', rest: '90s', target: 'Chest (Upper), Shoulders' },
-            { name: 'Face Pulls', sets: '3', reps: '10-15', rest: '60s', target: 'Rear Delts, Upper Back', note: "Crucial for shoulder health."}
-        ],
-        'Lower Body': [ 
-            { name: 'Barbell Back Squats', sets: '4-5', reps: '3-5', rest: '150s', target: 'Quads, Glutes, Hamstrings' },
-            { name: 'Romanian Deadlifts (RDLs)', sets: '3-4', reps: '6-10', rest: '120s', target: 'Hamstrings, Glutes, Lower Back' },
-            { name: 'Leg Press', sets: '3-4', reps: '6-10', rest: '120s', target: 'Quads, Glutes' },
-            { name: 'Hamstring Curls (Lying or Seated)', sets: '3', reps: '8-12', rest: '90s', target: 'Hamstrings' },
-            { name: 'Calf Raises (Standing & Seated)', sets: '3-4', reps: '8-15', rest: '60s', target: 'Calves' },
-            { name: 'Glute Bridges / Hip Thrusts (Weighted)', sets: '3', reps: '8-12', rest: '90s', target: 'Glutes'}
+            { name: 'Clean and Jerk', sets: '5', reps: '1-3', rest: '180s', note: "Explosive, technical lift. Focus on form." },
+            { name: 'Snatch', sets: '5', reps: '1-3', rest: '180s', note: "Highly technical. Focus on speed and precision." },
+            { name: 'Farmer\'s Walk', sets: '3', reps: '20-30 meters', rest: '90s', note: "Use heavy dumbbells or farmer's handles." },
+            { name: 'Strongman Log Press', sets: '3-5', reps: '1-5', rest: '120-180s', note: 'Explosive and powerful upper body movement.' },
+            { name: 'Atlas Stone Lifts', sets: '3', reps: '3-5 (over bar or to platform)', rest: '180s', note: 'Ultimate full-body strength test. Prioritize safe technique.' },
+            { name: 'Tire Flips', sets: '4', reps: '3-5 flips', rest: '120s', note: 'Explosive full-body power. Choose appropriate tire weight.' }
         ],
         'Chest': [
             { name: 'Barbell Bench Press', sets: '4', reps: '4-6', rest: '120-180s' }, 
             { name: 'Incline Dumbbell Press', sets: '3-4', reps: '6-10', rest: '90-120s' },
             { name: 'Weighted Dips (Chest Focus)', sets: '3-4', reps: '6-10', rest: '90-120s' },
-            { name: 'Decline Barbell/Dumbbell Press', sets: '3', reps: '6-10', rest: '60-90s' }
+            { name: 'Decline Barbell/Dumbbell Press', sets: '3', reps: '6-10', rest: '60-90s' },
+            { name: 'Floor Press (Barbell/Dumbbell)', sets: '3-4', reps: '4-6', rest: '120s', note: 'Builds lockout strength, easier on shoulders.'},
+            { name: 'Spoto Press', sets: '3', reps: '5-8', rest: '90s', note: 'Pause 1 inch off the chest to build control and power.'}
         ], 
         'Back': [
             { name: 'Weighted Pull-ups / Chin-ups', sets: '4', reps: '5-8 (or AMRAP)', rest: '120-180s' }, 
             { name: 'Barbell Rows (Pendlay/Yates)', sets: '4', reps: '5-8', rest: '120s' },
             { name: 'T-Bar Rows / Chest Supported Rows', sets: '3-4', reps: '8-12', rest: '90-120s' },
-            { name: 'Single-Arm Dumbbell Rows', sets: '3', reps: '8-12 per side', rest: '90s' }
+            { name: 'Single-Arm Dumbbell Rows', sets: '3', reps: '8-12 per side', rest: '90s' },
+            { name: 'Deficit Deadlifts (1-2 inch)', sets: '3', reps: '3-5', rest: '180s', note: 'Increases range of motion for more power off the floor.' },
+            { name: 'Rack Pulls (from below knee)', sets: '3', reps: '2-5', rest: '180s', note: 'Overload the top portion of the deadlift.' },
+            { name: 'Kroc Rows', sets: '1-2', reps: '15-25 per arm', rest: '90s', note: 'High-rep heavy dumbbell rows for grip and back thickness.' }
         ], 
         'Legs': [ 
             { name: 'Barbell Back Squats', sets: '4-5', reps: '3-6', rest: '150s' }, 
             { name: 'Leg Press', sets: '3-4', reps: '6-10', rest: '120s' },
             { name: 'Walking Lunges (Dumbbell/Barbell)', sets: '3', reps: '8-12 per leg', rest: '90s' },
-            { name: 'Stiff-Legged Deadlifts / Good Mornings', sets: '3-4', reps: '8-12', rest: '120s', note: "Hamstring/Glute focus." }
+            { name: 'Stiff-Legged Deadlifts / Good Mornings', sets: '3-4', reps: '8-12', rest: '120s', note: "Hamstring/Glute focus." },
+            { name: 'Pause Squats', sets: '3', reps: '3-5 (3-second pause)', rest: '150s', note: 'Builds strength out of the hole.' },
+            { name: 'Safety Bar Squats', sets: '3-4', reps: '5-8', rest: '120s', note: 'Less stress on shoulders, great for upper back.' },
+            { name: 'Anderson Squats', sets: '3', reps: '3-5', rest: '120s', note: 'Starting from a dead stop at the bottom.' }
         ], 
         'Shoulders': [
             { name: 'Standing Barbell Overhead Press', sets: '4', reps: '4-6', rest: '120-180s' }, 
             { name: 'Seated Dumbbell Press', sets: '3-4', reps: '6-10', rest: '90-120s' },
             { name: 'Heavy Lateral Raises (Dumbbell/Cable)', sets: '3-4', reps: '8-12', rest: '60-90s', note: "Focus on medial delt." },
-            { name: 'Face Pulls / Bent-Over Dumbbell Raises', sets: '3-4', reps: '10-15', rest: '60s', note: "Rear delt & upper back health." }
+            { name: 'Face Pulls / Bent-Over Dumbbell Raises', sets: '3-4', reps: '10-15', rest: '60s', note: "Rear delt & upper back health." },
+            { name: 'Push Press', sets: '3-5', reps: '3-5', rest: '120s', note: 'Use leg drive to move heavier weight.' },
+            { name: 'Behind the Neck Press (if mobility allows)', sets: '3', reps: '5-8', rest: '120s', note: 'Caution required. Great for shoulder stability.' },
+            { name: 'Viking Press', sets: '3', reps: '6-10', rest: '90s', note: 'Neutral grip press, common in strongman.' }
         ], 
         'Arms': [ 
             { name: 'Close-Grip Bench Press', sets: '3-4', reps: '6-10', rest: '90-120s', target: 'Triceps, Chest' }, 
             { name: 'Barbell Curls', sets: '3-4', reps: '6-10', rest: '90s', target: 'Biceps' },
             { name: 'Skullcrushers / Overhead Dumbbell Extension', sets: '3-4', reps: '8-12', rest: '90s', target: 'Triceps' },
-            { name: 'Dumbbell Hammer Curls / Incline Curls', sets: '3', reps: '8-12', rest: '60-90s', target: 'Biceps, Brachialis' }
+            { name: 'Dumbbell Hammer Curls / Incline Curls', sets: '3', reps: '8-12', rest: '60-90s', target: 'Biceps, Brachialis' },
+            { name: 'Weighted Dips (Tricep Focus)', sets: '3-4', reps: '6-10', rest: '90s', note: 'Stay upright to target triceps.' },
+            { name: 'JM Press', sets: '3', reps: '8-12', rest: '90s', note: 'Hybrid between close-grip press and skullcrusher.' },
+            { name: 'Cheat Curls (Heavy Barbell)', sets: '3', reps: '4-6', rest: '90s', note: 'Use slight momentum to overload biceps.' },
+            { name: 'Bicep 21s', sets: '2-3', reps: '21 per set', rest: '60s', note: '7 bottom half, 7 top half, 7 full reps.' }
         ], 
         'Core': [
             { name: 'Weighted Plank / RKC Plank', sets: '3-4', reps: '30-60s hold', rest: '90s' }, 
             { name: 'Hanging Leg Raises / Captain\'s Chair Raises', sets: '3-4', reps: '10-20 (or AMRAP)', rest: '90s' },
             { name: 'Ab Wheel Rollouts', sets: '3-4', reps: '8-15 (or AMRAP)', rest: '90s' },
-            { name: 'Cable Woodchoppers / Russian Twists (Weighted)', sets: '3', reps: '10-15 per side', rest: '60s', note: "Rotational strength." }
+            { name: 'Cable Woodchoppers / Russian Twists (Weighted)', sets: '3', reps: '10-15 per side', rest: '60s', note: "Rotational strength." },
+            { name: 'Suitcase Carries', sets: '3', reps: '20-30 meters per side', rest: '60s', note: 'Excellent anti-lateral flexion core work.' },
+            { name: 'Sled Drags/Pulls (Heavy)', sets: '4', reps: '20 meters', rest: '90s', note: 'Builds incredible core and leg strength.' },
+            { name: 'Zercher Carries', sets: '3', reps: '20 meters', rest: '90s', note: 'Taxes the entire core and upper back.' }
         ],
     },
     hypertrophy: { 
@@ -92,40 +100,29 @@ const exerciseDatabase = {
             { name: 'Lying Leg Curls', sets: '3', reps: '12-15', rest: '60s', note: "Squeeze hamstrings at the top." },
             { name: 'Dumbbell Bicep Curls (Alternating)', sets: '3', reps: '10-12 per arm', rest: '60s' },
             { name: 'Overhead Rope Tricep Extensions', sets: '3', reps: '12-15', rest: '60s' },
-        ],
-        'Upper Body': [
-            { name: 'Incline Dumbbell Press', sets: '3-4', reps: '8-12', rest: '60-90s', target: 'Chest, Shoulders' },
-            { name: 'Flat Dumbbell Press / Machine Chest Press', sets: '3-4', reps: '10-15', rest: '60-90s', target: 'Chest' },
-            { name: 'Lat Pulldowns (Wide/Neutral Grip)', sets: '3-4', reps: '10-15', rest: '60-90s', target: 'Back (Lats)' },
-            { name: 'Chest-Supported Rows / Machine Rows', sets: '3-4', reps: '10-15', rest: '60-90s', target: 'Back (Mid/Upper)' },
-            { name: 'Seated Dumbbell Lateral Raises', sets: '3-4', reps: '12-20 (dropsets optional)', rest: '45-60s', target: 'Shoulders (Medial)' },
-            { name: 'Overhead Dumbbell Press', sets: '3', reps: '10-15', rest: '60s', target: 'Shoulders (Anterior)' },
-            { name: 'Dumbbell Bicep Curls (Alternating)', sets: '3', reps: '10-15 per arm', rest: '45-60s', target: 'Biceps' },
-            { name: 'Rope Tricep Pushdowns', sets: '3', reps: '12-20', rest: '45-60s', target: 'Triceps' },
-        ], 
-        'Lower Body': [
-            { name: 'Leg Press (High Reps)', sets: '4', reps: '15-20', rest: '90s', target: 'Quads, Glutes' },
-            { name: 'Hack Squats / Smith Machine Squats', sets: '3-4', reps: '10-15', rest: '90s', target: 'Quads' },
-            { name: 'Romanian Deadlifts (Dumbbell/Barbell)', sets: '3-4', reps: '12-15', rest: '60-90s', target: 'Hamstrings, Glutes' },
-            { name: 'Walking Lunges (Dumbbells)', sets: '3', reps: '12-15 per leg', rest: '60s', target: 'Quads, Glutes' },
-            { name: 'Seated Leg Extensions', sets: '3-4', reps: '15-25 (control negative)', rest: '45-60s', target: 'Quads' },
-            { name: 'Lying or Seated Hamstring Curls', sets: '3-4', reps: '12-20', rest: '45-60s', target: 'Hamstrings' },
-            { name: 'Standing Calf Raises (Pause at top & bottom)', sets: '4', reps: '15-25', rest: '45s', target: 'Calves' },
-            { name: 'Seated Calf Raises', sets: '3', reps: '15-25', rest: '45s', target: 'Calves' },
+            { name: 'Kettlebell Swings (American or Russian)', sets: '4', reps: '15-25', rest: '60s', note: 'Explosive hip hinge for glutes and hamstrings.' },
+            { name: 'Renegade Rows', sets: '3', reps: '8-10 per arm', rest: '75s', note: 'Requires immense core stability.' },
+            { name: 'Man-Makers', sets: '3', reps: '5-8', rest: '90s', note: 'A full body complex: push-up, row, row, clean, press.' }
         ],
         'Chest': [
             { name: 'Incline Dumbbell Press', sets: '3-4', reps: '8-12', rest: '75s', note: "Prioritize upper chest." }, 
             { name: 'Flat Dumbbell Bench Press', sets: '3-4', reps: '10-15', rest: '75s', note: "Focus on stretch and contraction." },
             { name: 'Cable Flyes (High-to-Low & Low-to-High)', sets: '3 each', reps: '12-15', rest: '60s', note: "Target different fiber angles." },
             { name: 'Machine Chest Press / Pec Deck Flyes', sets: '3', reps: '12-15 (focus on squeeze)', rest: '60s', note: "Constant tension." },
-            { name: 'Push-ups (Weighted or to failure)', sets: '2-3', reps: 'AMRAP', rest: '60s', note: "Finisher."}
+            { name: 'Push-ups (Weighted or to failure)', sets: '2-3', reps: 'AMRAP', rest: '60s', note: "Finisher."},
+            { name: 'Dumbbell Squeeze Press', sets: '3', reps: '10-15', rest: '60s', note: 'Squeeze dumbbells together throughout for intense contraction.' },
+            { name: 'Gironda Dips', sets: '3', reps: 'AMRAP', rest: '75s', note: 'Wide grip, flared elbows, chin to chest to target outer chest.' },
+            { name: 'Svend Press', sets: '3', reps: '10-15', rest: '45s', note: 'Isometric press with plates for inner-chest focus.'}
         ], 
         'Back': [
             { name: 'Pull-ups / Assisted Pull-ups / Lat Pulldowns', sets: '3-4', reps: '8-15 (or to failure)', rest: '75s', note: "Vary grip width." }, 
             { name: 'T-Bar Rows / Chest Supported Rows', sets: '3-4', reps: '10-15', rest: '75s', note: "Focus on mid-back thickness." },
             { name: 'Single Arm Dumbbell Rows', sets: '3', reps: '10-15 per side', rest: '60s', note: "Full range of motion." },
             { name: 'Seated Cable Rows (Close Grip)', sets: '3', reps: '12-15', rest: '60s', note: "Squeeze shoulder blades together." },
-            { name: 'Face Pulls (Rope Attachment)', sets: '3-4', reps: '15-20', rest: '45s', note: "Rear delts & upper back health." }
+            { name: 'Face Pulls (Rope Attachment)', sets: '3-4', reps: '15-20', rest: '45s', note: "Rear delts & upper back health." },
+            { name: 'Straight Arm Pulldowns', sets: '3', reps: '12-15', rest: '60s', note: 'Isolates the lats with constant tension.' },
+            { name: 'Meadow\'s Rows (Landmine)', sets: '3', reps: '10-12 per side', rest: '75s', note: 'Unilateral row with a unique stretch.' },
+            { name: 'Rack Chins', sets: '3', reps: 'AMRAP', rest: '75s', note: 'Partial range of motion pull-ups for overloading.' }
         ], 
         'Legs': [ 
             { name: 'Barbell Squats (Moderate weight, controlled tempo)', sets: '3-4', reps: '8-12', rest: '90s', note: "Focus on form and depth." },
@@ -133,57 +130,74 @@ const exerciseDatabase = {
             { name: 'Bulgarian Split Squats (Dumbbells)', sets: '3', reps: '10-15 per leg', rest: '60s', note: "Unilateral strength and balance." },
             { name: 'Lying Leg Curls', sets: '3-4', reps: '12-15', rest: '60s', note: "Isolate hamstrings." },
             { name: 'Leg Extensions', sets: '3-4', reps: '15-20', rest: '45-60s', note: "Quad isolation, focus on peak contraction." },
-            { name: 'Glute Kickbacks (Cable or Machine)', sets: '3', reps: '15-20 per leg', rest: '45s', note: "Glute isolation."}
+            { name: 'Glute Kickbacks (Cable or Machine)', sets: '3', reps: '15-20 per leg', rest: '45s', note: "Glute isolation."},
+            { name: 'Tom Platz Hack Squats', sets: '3', reps: '10-20', rest: '90s', note: 'Deep, controlled reps for extreme quad growth.' },
+            { name: 'Jefferson Squats', sets: '3', reps: '8-12', rest: '90s', note: 'Unique stance for asymmetrical loading.' },
+            { name: 'Cyclist Squats (Heels Elevated)', sets: '3', reps: '15-20', rest: '60s', note: 'Maximizes quad activation.' }
         ], 
         'Shoulders': [
             { name: 'Seated Dumbbell Shoulder Press', sets: '3-4', reps: '10-15', rest: '75s', note: "Controlled, full ROM." }, 
             { name: 'Arnold Press', sets: '3-4', reps: '10-15', rest: '60s', note: "Hits all three delt heads." },
             { name: 'Lateral Raises (Dumbbell/Cable - various angles)', sets: '4-5', reps: '12-20 (consider dropsets)', rest: '45s', note: "Focus on medial delt." },
             { name: 'Front Raises (Dumbbell/Cable/Plate)', sets: '3', reps: '12-15', rest: '45s', note: "Isolate anterior delt." },
-            { name: 'Bent-Over Dumbbell Raises / Reverse Pec Deck', sets: '3-4', reps: '15-20', rest: '45s', note: "Target rear delts." }
+            { name: 'Bent-Over Dumbbell Raises / Reverse Pec Deck', sets: '3-4', reps: '15-20', rest: '45s', note: "Target rear delts." },
+            { name: 'Lu Raises (Lateral to Front Raise)', sets: '3', reps: '10-15', rest: '60s', note: 'Combines lateral and front raise movements.' },
+            { name: 'Cable Y-Raises', sets: '3', reps: '12-15', rest: '60s', note: 'Great for lower traps and shoulder health.' },
+            { name: 'Egyptian Lateral Raises', sets: '3', reps: '12-15 per side', rest: '45s', note: 'Leaning lateral raise for increased stretch.' }
         ], 
         'Arms': [ 
             { name: 'Dumbbell Bicep Curls (Incline/Standing/Concentration)', sets: '3-4', reps: '10-15', rest: '60s', note: "Vary curl type for full development." }, 
             { name: 'Hammer Curls / Rope Hammer Curls', sets: '3', reps: '10-15', rest: '60s', note: "Targets brachialis and brachioradialis." },
             { name: 'Overhead Dumbbell Extension / Rope Pushdowns', sets: '3-4', reps: '12-20', rest: '60s', note: "Focus on tricep stretch and contraction." },
             { name: 'Close-Grip Push-ups / Dips (Bodyweight or Assisted)', sets: '3', reps: 'To failure or 10-15', rest: '60s', note: "Compound for triceps." },
-            { name: 'Preacher Curls (Machine or EZ Bar)', sets: '3', reps: '10-12', rest: '60s', note: "Isolates bicep peak."}
+            { name: 'Preacher Curls (Machine or EZ Bar)', sets: '3', reps: '10-12', rest: '60s', note: "Isolates bicep peak."},
+            { name: 'Spider Curls', sets: '3', reps: '12-15', rest: '60s', note: 'Performed on an incline bench to isolate biceps.' },
+            { name: 'Drag Curls', sets: '3', reps: '10-15', rest: '60s', note: 'Drag bar up the body, focusing on contraction.' },
+            { name: 'Tate Press (Dumbbell)', sets: '3', reps: '12-15', rest: '60s', note: 'Excellent tricep isolation movement.' }
         ], 
         'Core': [
             { name: 'Cable Crunches / Machine Crunches', sets: '3-4', reps: '15-25', rest: '45s', note: "Focus on spinal flexion." }, 
             { name: 'Hanging Leg Raises / Captain\'s Chair Leg Raises', sets: '3-4', reps: '12-20 (or to failure)', rest: '60s', note: "Target lower abs." },
             { name: 'Russian Twists (Weighted if possible)', sets: '3', reps: '15-20 per side', rest: '45s', note: "Work obliques." },
             { name: 'Plank Variations (Side Plank, RKC Plank, Stability Ball Plank)', sets: '3', reps: '30-60s hold per variation', rest: '45s', note: "Build isometric strength." },
-            { name: 'Back Extensions / Hyperextensions (Bodyweight or Weighted)', sets: '3', reps: '12-15', rest: '60s', note: "Strengthen lower back."}
+            { name: 'Back Extensions / Hyperextensions (Bodyweight or Weighted)', sets: '3', reps: '12-15', rest: '60s', note: "Strengthen lower back."},
+            { name: 'Pallof Press', sets: '3', reps: '10-15 per side', rest: '60s', note: 'Anti-rotation exercise for deep core stability.' },
+            { name: 'Dragon Flags', sets: '3', reps: 'AMRAP', rest: '90s', note: 'Advanced core exercise popularized by Bruce Lee.' },
+            { name: 'Landmine 180s / Twists', sets: '3', reps: '10-15 per side', rest: '60s', note: 'Rotational core work with a barbell.' }
         ],
     },
-    flexibility: { 
-        'Dynamic Mobility (Pre-workout)': [
-            { name: 'Arm Circles (Forward & Backward)', reps: '10-15 each direction', duration: '30s' },
-            { name: 'Leg Swings (Forward & Sideways)', reps: '10-15 per leg/direction', duration: '30s per leg' },
-            { name: 'Torso Twists (Standing, controlled)', reps: '10-15 each side', duration: '30s' },
-            { name: 'Cat-Cow Stretches', reps: '8-10 cycles', duration: '60s' },
-            { name: 'Walking Lunges with Thoracic Rotation', reps: '5-8 per leg', duration: '60s' },
-            { name: 'High Knees / Butt Kicks (Light)', duration: '30s each' },
+    flexibility: {
+        'dynamic': [
+            { name: 'Arm Circles (Forward & Backward)', reps: '10-15 each direction', duration: '30s', target: ['Shoulders', 'Upper Body', 'Chest', 'Back'] },
+            { name: 'Leg Swings (Forward & Sideways)', reps: '10-15 per leg/direction', duration: '30s per leg', target: ['Legs', 'Lower Body', 'Hips', 'Glutes'] },
+            { name: 'Torso Twists (Standing, controlled)', reps: '10-15 each side', duration: '30s', target: ['Core', 'Back'] },
+            { name: 'Cat-Cow Stretches', reps: '8-10 cycles', duration: '60s', target: ['Back', 'Core', 'Full Body'] },
+            { name: 'Walking Lunges with Thoracic Rotation', reps: '5-8 per leg', duration: '60s', target: ['Full Body', 'Legs', 'Back', 'Hips', 'Quads'] },
+            { name: 'High Knees / Butt Kicks (Light)', duration: '30s each', target: ['Full Body', 'Legs', 'Quads', 'Hamstrings'] },
+            { name: 'World\'s Greatest Stretch', reps: '5-8 per side', duration: '90s', note: 'Opens hips, hamstrings, and thoracic spine.', target: ['Full Body', 'Hips', 'Legs', 'Back', 'Hamstrings'] },
+            { name: 'Inchworms', reps: '5-8', duration: '60s', note: 'Stretches hamstrings and activates shoulders/core.', target: ['Full Body', 'Hamstrings', 'Shoulders', 'Core'] },
+            { name: 'Spider-Man Lunges', reps: '8-10 per side', duration: '60s', note: 'Excellent for hip mobility.', target: ['Hips', 'Legs', 'Lower Body'] },
+            { name: 'Sun Salutation A (Flow)', reps: '2-3 rounds', note: "Flow with breath.", target: ['Full Body'] },
+            { name: 'Bird-Dog', reps: '8-12 per side (slow and controlled)', note: 'Improves core stability and balance.', target: ['Core', 'Back', 'Glutes'] }
         ],
-        'Static Stretching (Post-workout)': [
-            { name: 'Chest Stretch (Doorway or Wall)', duration: '30-45s hold x 2 sets' },
-            { name: 'Lat Stretch (Hanging from bar or side bend)', duration: '30-45s hold per side x 2 sets' },
-            { name: 'Hamstring Stretch (Seated or Standing)', duration: '30-45s hold per leg x 2 sets' },
-            { name: 'Quad Stretch (Standing or Lying)', duration: '30-45s hold per leg x 2 sets' },
-            { name: 'Hip Flexor Stretch (Kneeling Lunge)', duration: '30-45s hold per leg x 2 sets' },
-            { name: 'Glute/Piriformis Stretch (Figure-4 or Pigeon)', duration: '30-45s hold per leg x 2 sets' },
-            { name: 'Calf Stretch (Against Wall - Straight & Bent Knee)', duration: '30-45s hold per variation/leg' },
-        ],
-         'Yoga/Pilates Inspired': [ 
-            { name: 'Sun Salutation A (Surya Namaskar A)', reps: '3-5 rounds', note: "Flow with breath." },
-            { name: 'Downward-Facing Dog (Adho Mukha Svanasana)', duration: '5-8 breaths hold', note: "Press heels down, lengthen spine." },
-            { name: 'Warrior II (Virabhadrasana II)', duration: '5 breaths hold per side', note: "Strong legs, open hips." },
-            { name: 'Triangle Pose (Trikonasana)', duration: '5 breaths hold per side', note: "Lengthen both side bodies." },
-            { name: 'Plank to Forearm Plank Flow', reps: '5-8 transitions', note: "Engage core." },
-            { name: 'Bridge Pose (Setu Bandhasana)', duration: '5-8 breaths hold', note: "Lift hips, engage glutes." },
-            { name: 'Reclining Spinal Twist', duration: '5-8 breaths hold per side', note: "Gentle twist, shoulders grounded." },
-            { name: 'Savasana (Corpse Pose)', duration: '3-5 minutes', note: "Complete relaxation." },
+        'static': [
+            { name: 'Doorway Chest Stretch', duration: '30-45s hold x 2 sets', target: ['Chest', 'Shoulders', 'Upper Body'] },
+            { name: 'Lat Stretch (Hanging or Side Bend)', duration: '30-45s hold per side x 2 sets', target: ['Back', 'Lats', 'Upper Body'] },
+            { name: 'Seated Hamstring Stretch', duration: '30-45s hold per leg x 2 sets', target: ['Legs', 'Hamstrings', 'Lower Body'] },
+            { name: 'Standing Quad Stretch', duration: '30-45s hold per leg x 2 sets', target: ['Legs', 'Quads', 'Lower Body'] },
+            { name: 'Kneeling Hip Flexor Stretch', duration: '30-45s hold per leg x 2 sets', target: ['Hips', 'Legs', 'Lower Body', 'Quads'] },
+            { name: 'Figure-4 Glute Stretch', duration: '30-45s hold per leg x 2 sets', target: ['Hips', 'Glutes', 'Lower Body'] },
+            { name: 'Wall Calf Stretch', duration: '30-45s hold per variation/leg', target: ['Legs', 'Calves', 'Lower Body'] },
+            { name: 'Couch Stretch', duration: '45-60s hold per leg', note: 'Intense stretch for quads and hip flexors.', target: ['Quads', 'Hips', 'Legs'] },
+            { name: 'Pigeon Pose', duration: '45-60s hold per leg', note: 'Deep glute and piriformis stretch.', target: ['Hips', 'Glutes', 'Lower Body', 'Back'] },
+            { name: 'Thread the Needle', duration: '30-45s hold per side', note: 'Stretches shoulders and upper back.', target: ['Shoulders', 'Back', 'Upper Body'] },
+            { name: 'Overhead Tricep Stretch', duration: '30s hold per side', target: ['Arms', 'Triceps', 'Shoulders', 'Back'] },
+            { name: 'Cross-Body Shoulder Stretch', duration: '30s hold per side', target: ['Shoulders', 'Upper Body'] },
+            { name: 'Downward-Facing Dog', duration: '5-8 breaths hold', note: "Press heels down, lengthen spine.", target: ['Full Body', 'Hamstrings', 'Calves', 'Back', 'Shoulders'] },
+            { name: 'Bridge Pose', duration: '5-8 breaths hold', note: "Lift hips, engage glutes.", target: ['Glutes', 'Back', 'Core', 'Hamstrings'] },
+            { name: 'Reclining Spinal Twist', duration: '5-8 breaths hold per side', note: "Gentle twist, shoulders grounded.", target: ['Back', 'Core', 'Glutes', 'Hips'] },
+            { name: 'Child\'s Pose (Balasana)', duration: '5-8 breaths hold', note: 'Gentle stretch for back, hips, and thighs.', target: ['Back', 'Hips', 'Full Body'] },
+            { name: 'Cobra Pose (Bhujangasana)', duration: '3-5 breaths hold', note: 'Opens chest and strengthens spine.', target: ['Chest', 'Back', 'Core']}
         ]
     }
 };
@@ -192,14 +206,12 @@ const exerciseDatabase = {
 // --- AI Logic for Generating Weekly Plan ---
 const getAdditionalExercisesFromDb = (category, subCategory, count, existingNames = []) => {
     let exercisePool = [];
-    // For lifting, subCategory is an array of focuses. We need to aggregate exercises from all these focuses.
     if ((category === 'strength' || category === 'hypertrophy') && Array.isArray(subCategory)) {
         subCategory.forEach(focus => {
             if (exerciseDatabase[category] && exerciseDatabase[category][focus] && Array.isArray(exerciseDatabase[category][focus])) {
                 exercisePool.push(...exerciseDatabase[category][focus]);
             }
         });
-         // If no specific focus exercises found, or to broaden, add Full Body exercises
         if (exerciseDatabase[category] && exerciseDatabase[category]['Full Body'] && Array.isArray(exerciseDatabase[category]['Full Body'])) {
             exercisePool.push(...exerciseDatabase[category]['Full Body']);
         }
@@ -214,7 +226,6 @@ const getAdditionalExercisesFromDb = (category, subCategory, count, existingName
         console.warn(`Exercise pool for ${category}.${Array.isArray(subCategory) ? subCategory.join('/') : subCategory} is empty or not an array.`);
         return [];
     }
-    // Remove duplicates from the aggregated pool first
     const uniquePool = exercisePool.filter((ex, index, self) => index === self.findIndex((e) => e.name === ex.name));
 
     const available = uniquePool.filter(ex => !existingNames.includes(ex.name));
@@ -223,8 +234,28 @@ const getAdditionalExercisesFromDb = (category, subCategory, count, existingName
 
 
 const generateWeeklyPlan = (inputs) => {
-    const { sport, strengthFocus, hypertrophyFocus, runningGoal, focusBalance, trainingDays } = inputs; 
-    // focusBalance: -1 (More Running), 0 (Balanced), 1 (More Lifting)
+    const { sport, strengthFocus, hypertrophyFocus, runningGoal, focusBalance, trainingDays } = inputs;
+
+    const fullRestProtocol = {
+        activity: 'Full Rest',
+        details: 'Objective: Maximize physical and mental recuperation. Prioritize sleep, nutrition, and stress management. This is crucial for adaptation and progress.',
+        trainingProtocol: [
+            { protocolStep: "Primary Focus", description: "Complete rest from structured training.", items: [{ name: 'Full Rest Day', note: 'Focus on recovery.'}] },
+            { protocolStep: "Optional Light Activity", description: "If desired, very light, non-strenuous activity like a short walk or gentle stretching.", items: [{ name: 'Gentle Walk (Optional)', duration: '15-20 min'}, { name: 'Light Static Stretching (Optional)', duration: '10-15 min'}]}
+        ]
+    };
+
+    const activeRecoveryProtocol = {
+        activity: 'Active Recovery / Mobility',
+        details: `Objective: Promote recovery or enjoy a different low-stress activity.`,
+        trainingProtocol: [
+            { protocolStep: "Activity Choice", description: "Choose one of the following:", items: [
+                {name: 'Easy Cycling or Swimming', duration: '20-30 min (Low Intensity)', type: 'Cardio'},
+                {name: 'Full Body Mobility Flow', duration: '20-25 min', type: 'Mobility'},
+                {name: 'Gentle Yoga or Tai Chi', duration: '20-30 min', type: 'Flexibility/Mindfulness'}
+            ]}
+        ]
+    };
 
     let plan = [ 
         { day: 'Monday', activity: 'Workout', details: '', trainingProtocol: [] },
@@ -232,35 +263,14 @@ const generateWeeklyPlan = (inputs) => {
         { day: 'Wednesday', activity: 'Workout', details: '', trainingProtocol: [] },
         { day: 'Thursday', activity: 'Workout', details: '', trainingProtocol: [] },
         { day: 'Friday', activity: 'Workout', details: '', trainingProtocol: [] },
-        { day: 'Saturday', activity: 'Workout or Long Activity', details: '', trainingProtocol: [] },
-        { day: 'Sunday', activity: 'Full Rest', details: 'Objective: Maximize physical and mental recuperation. Prioritize sleep, nutrition, and stress management. This is crucial for adaptation and progress.', trainingProtocol: [
-            { protocolStep: "Primary Focus", description: "Complete rest from structured training.", items: [{ name: 'Full Rest Day', note: 'Focus on recovery.'}] },
-            { protocolStep: "Optional Light Activity", description: "If desired, very light, non-strenuous activity like a short walk or gentle stretching.", items: [{ name: 'Gentle Walk (Optional)', duration: '15-20 min'}, { name: 'Light Static Stretching (Optional)', duration: '10-15 min'}]}
-        ]},
+        { day: 'Saturday', activity: 'Workout', details: '', trainingProtocol: [] },
+        { day: 'Sunday', activity: 'Workout', details: '', trainingProtocol: [] },
     ];
 
-    const dayOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     let availableWorkoutDays = dayOrder.slice(0, trainingDays);
     
-    // Set non-training days to rest
-    dayOrder.forEach(day => {
-        if (!availableWorkoutDays.includes(day)) {
-            const dayPlan = plan.find(p => p.day === day);
-            if (dayPlan) {
-                dayPlan.activity = 'Active Recovery / Mobility';
-                dayPlan.details = `Objective: Promote recovery or enjoy a different low-stress activity.`;
-                dayPlan.trainingProtocol = [
-                    { protocolStep: "Activity Choice", description: "Choose one of the following:", items: [
-                        {name: 'Easy Cycling or Swimming', duration: '20-30 min (Low Intensity)', type: 'Cardio'}, 
-                        {name: 'Full Body Mobility Flow', duration: '20-25 min', type: 'Mobility'},
-                        {name: 'Gentle Yoga or Tai Chi', duration: '20-30 min', type: 'Flexibility/Mindfulness'}
-                    ]}
-                ];
-            }
-        }
-    });
-
-    
+    // --- Start Scheduling Activities ---
     const scheduleActivity = (preferredDays, fallbackDays, activitySetter) => {
         for (const day of preferredDays) {
             if (availableWorkoutDays.includes(day)) {
@@ -283,27 +293,11 @@ const generateWeeklyPlan = (inputs) => {
         }
         return false;
     };
-
-    const getWarmupExercises = (num = 3) => { 
-        const exercisesArray = exerciseDatabase.flexibility && exerciseDatabase.flexibility['Dynamic Mobility (Pre-workout)'];
-        if (!Array.isArray(exercisesArray)) {
-            console.error("AI Planner Error: 'Dynamic Mobility (Pre-workout)' exercises not found or not an array in exerciseDatabase.flexibility. Defaulting to empty.", exerciseDatabase.flexibility);
-            return [];
-        }
-        return [...exercisesArray].sort(() => 0.5 - Math.random()).slice(0, num);
-    };
-    const getCooldownExercises = (num = 3) => { 
-        const exercisesArray = exerciseDatabase.flexibility && exerciseDatabase.flexibility['Static Stretching (Post-workout)'];
-        if (!Array.isArray(exercisesArray)) {
-            console.error("AI Planner Error: 'Static Stretching (Post-workout)' exercises not found or not an array in exerciseDatabase.flexibility. Defaulting to empty.", exerciseDatabase.flexibility);
-            return [];
-        }
-        return [...exercisesArray].sort(() => 0.5 - Math.random()).slice(0, num);
-    };
+    
     const getLiftingExercises = (type, focusAreas, numPrimary = 2, numAccessory = 3) => { 
         let exercises = [];
         if (!focusAreas || focusAreas.length === 0) focusAreas = ['Full Body'];
-        const isBroadFocus = focusAreas.includes('Full Body') || focusAreas.includes('Upper Body') || focusAreas.includes('Lower Body');
+        const isBroadFocus = focusAreas.includes('Full Body');
         
         const exercisesToSelectPerFocus = Math.ceil((numPrimary + numAccessory) / (isBroadFocus ? 1 : focusAreas.length));
 
@@ -330,13 +324,11 @@ const generateWeeklyPlan = (inputs) => {
         return exercises.slice(0, numPrimary + numAccessory); 
     };
     
-    // Determine number of sessions based on focusBalance and trainingDays
     const totalSessions = trainingDays;
     let numRunningSessions = Math.round(trainingDays * (runningGoal ? (focusBalance < -0.3 ? 0.6 : (focusBalance > 0.3 ? 0.33 : 0.5)) : 0));
     const liftingFocusCount = (strengthFocus?.length || 0) + (hypertrophyFocus?.length || 0);
     let numLiftingSessions = liftingFocusCount > 0 ? totalSessions - numRunningSessions : 0;
     
-    // Cap running sessions
     if (runningGoal) {
         if (trainingDays <= 4) numRunningSessions = Math.min(numRunningSessions, 2);
         else numRunningSessions = Math.min(numRunningSessions, 3);
@@ -365,125 +357,257 @@ const generateWeeklyPlan = (inputs) => {
         numSportSessions = 0;
     }
 
-
-
-    // 1. Running Goal
     let runningDaysScheduled = 0;
     const runningDayPreferences = {
-        longRun: ['Saturday', 'Monday'],
+        longRun: ['Saturday', 'Sunday', 'Monday'],
         speedWork: ['Tuesday', 'Wednesday'],
         tempoOrEasy: ['Thursday', 'Friday']
     };
     let runningWarmupProtocolDesc = `Perform 10-15 minutes of easy jogging, followed by dynamic drills: leg swings (forward/backward, side-to-side), A-skips, B-skips, high knees, butt kicks, and ankle mobility exercises. Include 4-6 x 50-100m strides, building to near target pace for harder sessions.`;
     let runningCooldownProtocolDesc = `Complete 5-10 minutes of easy walking or jogging to gradually lower heart rate. Follow with 5-10 minutes of static stretching, holding each stretch for 30-45 seconds, focusing on hamstrings, quadriceps, calves, hip flexors, and glutes.`;
-    const createRunningProtocol = (mainSetName, mainSetNote, mainSetType = 'Main Activity') => [
-        { protocolStep: "Warm-up Protocol", description: runningWarmupProtocolDesc, items: getWarmupExercises(4).map(ex => ({...ex, type: 'Warm-up Drill'})) },
-        { protocolStep: "Main Set Protocol", description: mainSetNote, items: [{ name: mainSetName, note: mainSetNote.split('\n')[0] , type: mainSetType}]}, 
-        { protocolStep: "Cool-down Protocol", description: runningCooldownProtocolDesc, items: getCooldownExercises(4).map(ex => ({...ex, type: 'Cool-down Stretch'})) }
-    ];
     
-    if (numRunningSessions > 0) {
+    const createRunningProtocol = (mainSetName, mainSetNote, mainSetType = 'Main Activity') => {
+        const runningWarmups = [...exerciseDatabase.flexibility.dynamic].sort(() => 0.5 - Math.random()).slice(0, 4);
+        const runningMuscles = ['Hamstrings', 'Quads', 'Calves', 'Glutes', 'Hips', 'Legs'];
+        let runningCooldowns = exerciseDatabase.flexibility.static.filter(ex => ex.target.some(t => runningMuscles.includes(t)));
+        if (runningCooldowns.length < 4) {
+            runningCooldowns.push(...exerciseDatabase.flexibility.static.filter(ex => !runningCooldowns.some(s => s.name === ex.name)));
+        }
+        runningCooldowns = [...runningCooldowns].sort(() => 0.5 - Math.random()).slice(0, 4);
+
+        return [
+            { protocolStep: "Warm-up Protocol", description: runningWarmupProtocolDesc, items: runningWarmups.map(ex => ({...ex, type: 'Warm-up Drill'})) },
+            { protocolStep: "Main Set Protocol", description: mainSetNote, items: [{ name: mainSetName, note: mainSetNote.split('\n')[0] , type: mainSetType}]}, 
+            { protocolStep: "Cool-down Protocol", description: runningCooldownProtocolDesc, items: runningCooldowns.map(ex => ({...ex, type: 'Cool-down Stretch'})) }
+        ];
+    }
+    
+    if (numRunningSessions > 0) { // Long Run Day
         scheduleActivity(runningDayPreferences.longRun, availableWorkoutDays, (dayPlan) => {
-            dayPlan.activity = `Long Run (${runningGoal})`;
-            dayPlan.details = `Objective: Build aerobic endurance specific to your ${runningGoal}.`;
-            if (runningGoal.includes('Marathon')) { dayPlan.trainingProtocol = createRunningProtocol('Marathon Long Run', `Your longest run. Increase distance weekly (max ~32-35km). Pace: Easy (Zone 2). Practice fueling.`); }
-            else if (runningGoal.includes('Half Marathon')) { dayPlan.trainingProtocol = createRunningProtocol('Half Marathon Long Run', `Increase distance weekly (max ~18-20km). Pace: Easy. Practice fueling.`); }
-            else if (runningGoal.includes('10km')) { dayPlan.trainingProtocol = createRunningProtocol('10k Endurance Run (8-12km)', `Run 8-12km. Options: Steady pace, progression run, or broken 10k (2-3 x 2-3km @ 10k pace).`); }
-            else if (runningGoal.includes('5km')) { dayPlan.trainingProtocol = createRunningProtocol('5k Specific Endurance (5-8km)', `Run 5-8km steady or a timed 3-5km effort occasionally.`); }
-            else { dayPlan.trainingProtocol = createRunningProtocol('Longer Easy Run (50-75 min)', `Run 50-75 min at an easy, conversational pace.`); }
+            dayPlan.activity = `Endurance: Long Run`;
+            dayPlan.details = `Objective: Build aerobic capacity, endurance, and mental toughness. The cornerstone of any distance plan.`;
+            
+            const rand = Math.random();
+            if (runningGoal.includes('Marathon')) { 
+                dayPlan.trainingProtocol = rand > 0.5 ?
+                    createRunningProtocol('Marathon Pace Long Run', `90-120 minute run, including 2 sets of 4-5 miles at your target Marathon Pace within the run.`) :
+                    createRunningProtocol('Progressive Long Run', `Your longest run of the week (e.g., 12-18 miles). Start easy and gradually increase the pace, finishing the last 2-3 miles at a comfortably hard effort.`);
+            }
+            else if (runningGoal.includes('Half Marathon')) {
+                 dayPlan.trainingProtocol = rand > 0.5 ?
+                    createRunningProtocol('Half Marathon Pace Long Run', `75-90 minute run, with the last 20-30 minutes at your target Half Marathon pace.`) :
+                    createRunningProtocol('Steady Long Run', `Increase weekly distance towards 10-12 miles at an easy, conversational pace. Focus on time on feet.`);
+            }
+            else if (runningGoal.includes('10km')) { 
+                 dayPlan.trainingProtocol = rand > 0.5 ?
+                    createRunningProtocol('10k Progression Run (8-12km)', `Start at an easy pace for the first half, then gradually speed up to finish the last 2-3km at your 10k goal pace.`) :
+                    createRunningProtocol('Negative Split Long Run', `Run 60-75 minutes. Aim to run the second half slightly faster than the first half.`);
+            }
+            else if (runningGoal.includes('5km')) {
+                 dayPlan.trainingProtocol = rand > 0.5 ?
+                    createRunningProtocol('Timed 5km Effort', `After a full warm-up, run a 5km time trial to gauge your current fitness and pacing.`) :
+                    createRunningProtocol('3 x 1 Mile Repeats', `Run 3 repeats of 1 mile at your 5k goal pace, with 3-4 minutes of jog recovery between each.`);
+            }
+            else { 
+                dayPlan.trainingProtocol = createRunningProtocol('Conversational Long Run', `Run for 60-90 minutes at a pace where you can comfortably hold a conversation. The goal is building your aerobic base.`);
+            }
             runningDaysScheduled++;
         });
     }
 
-    if (numRunningSessions >= 2) {
+    if (numRunningSessions >= 2) { // Speed/Interval Day
         scheduleActivity(runningDayPreferences.speedWork, availableWorkoutDays, (dayPlan) => {
-            dayPlan.activity = `Speed/Interval Run (${runningGoal})`;
-            dayPlan.details = `Objective: Improve VO2 max, running economy, and pace for your ${runningGoal}.`;
-            if (runningGoal.includes('Marathon')) { dayPlan.trainingProtocol = createRunningProtocol('3-5 x 2-3km Intervals @ MP', `Perform 3-5 reps of 2-3km intervals at target marathon pace. Recovery: 400-800m jog.`); }
-            else if (runningGoal.includes('Half Marathon') || runningGoal.includes('10km')) { dayPlan.trainingProtocol = createRunningProtocol('5-8 x 800m-1km Intervals', `Perform 5-8 reps of 800m-1km intervals at 5k-10k pace. Recovery: 400m jog.`); }
-            else if (runningGoal.includes('5km')) { dayPlan.trainingProtocol = createRunningProtocol('8-12 x 400m Intervals @ 5k Pace', `Perform 8-12 reps of 400m intervals at 5k pace or faster. Recovery: 200-400m jog/walk.`); }
-            else {  dayPlan.activity = `Tempo/Fartlek Run (${runningGoal})`; dayPlan.details = `Objective: Improve lactate threshold or add unstructured speed.`; dayPlan.trainingProtocol = createRunningProtocol('20-30 min Tempo or Fartlek', `Tempo: 20-30 min at comfortably hard pace. Fartlek: 30-40 min easy with 6-8 x 1-2 min surges.`); }
+            dayPlan.activity = `Intensity: Speed Work`;
+            dayPlan.details = `Objective: Improve VO2 max, running economy, and lactate threshold for faster race times.`;
+
+            const rand = Math.random();
+            if (runningGoal.includes('Marathon')) {
+                 dayPlan.trainingProtocol = rand > 0.5 ?
+                    createRunningProtocol('Lactate Threshold Intervals', `3-4 repeats of 2 miles at your 10k to half-marathon pace. Take 3-4 minutes of jog recovery between intervals.`) :
+                    createRunningProtocol('Yasso 800s', `8-10 repeats of 800m. The goal time for each 800m (in min:sec) should match your goal marathon time (in hr:min). Jog for an equal amount of time as recovery.`);
+            }
+            else if (runningGoal.includes('Half Marathon')) {
+                 dayPlan.trainingProtocol = rand > 0.5 ?
+                    createRunningProtocol('Cruise Intervals', `5-6 repeats of 1 mile at your 10k pace. Take a 400m jog for recovery.`) :
+                    createRunningProtocol('Tempo Run', `20-30 minutes of continuous running at a comfortably hard pace (just below your lactate threshold).`);
+            }
+            else if (runningGoal.includes('10km')) {
+                 dayPlan.trainingProtocol = rand > 0.5 ?
+                    createRunningProtocol('VO2 Max Intervals', `5-6 repeats of 1000m at your 5k race pace. Take a 400-600m jog for recovery.`) :
+                    createRunningProtocol('Hill Repeats', `Find a moderate hill. Run 8-10 repeats of 45-60 seconds uphill at a hard effort. Jog back down for recovery. Focus on power and form.`);
+            }
+            else if (runningGoal.includes('5km')) {
+                 dayPlan.trainingProtocol = rand > 0.5 ?
+                    createRunningProtocol('VO2 Max Intervals', `10-12 repeats of 400m at slightly faster than your 5k goal pace. Take a 400m jog for recovery.`) :
+                    createRunningProtocol('Structured Fartlek', `30 min run including 8 repeats of (1 minute at 5k pace, 1 minute easy jog).`);
+            }
+            else { 
+                dayPlan.activity = `Intensity: Fartlek/Hills`;
+                dayPlan.details = `Objective: Build fitness with unstructured speed play or hill strength.`;
+                dayPlan.trainingProtocol = rand > 0.5 ?
+                    createRunningProtocol('Unstructured Fartlek', `Run for 30-40 minutes at an overall easy pace, but add 8-10 surges of 1-3 minutes at a faster pace. Use landmarks to guide your efforts.`) :
+                    createRunningProtocol('Hill Repeats', `6-8 repeats of a 30-45 second hill sprint. Jog back down for recovery.`);
+            }
             runningDaysScheduled++;
         });
     }
     
-    if (numRunningSessions === 3) {
+    if (numRunningSessions === 3) { // Easy/Tempo Day
          scheduleActivity(runningDayPreferences.tempoOrEasy, availableWorkoutDays, (dayPlan) => {
-            dayPlan.activity = `Easy/Tempo Run (${runningGoal})`;
-            dayPlan.details = `Objective: Aerobic maintenance, recovery, or sustained effort depending on goal.`;
-             if (runningGoal.includes('Marathon') || runningGoal.includes('Half Marathon')) { dayPlan.trainingProtocol = createRunningProtocol('20-40 min Tempo Run', `Run 20-40 min at a comfortably hard pace (HM pace).`); }
-             else if (runningGoal.includes('10km') || runningGoal.includes('5km')) { dayPlan.trainingProtocol = createRunningProtocol('Easy Run (30-40 min) + Strides', `Run 30-40 min easy. Finish with 4-6 x 100m strides.`); }
-             else { dayPlan.trainingProtocol = createRunningProtocol('Easy Run (30-50 min)', `Run 30-50 min at an easy, conversational pace.`); }
+            dayPlan.activity = `Foundation: Easy/Tempo Run`;
+            dayPlan.details = `Objective: Enhance aerobic fitness, aid recovery, and build mileage without excessive stress.`;
+
+            const rand = Math.random();
+            if (runningGoal.includes('Marathon') || runningGoal.includes('Half Marathon')) { 
+                dayPlan.trainingProtocol = rand > 0.5 ?
+                    createRunningProtocol('Easy Recovery Run', `45-60 minutes at a very easy, conversational pace. This run is all about recovery and building mileage.`) :
+                    createRunningProtocol('Progression Run', `Start a 45-minute run at an easy pace, gradually increasing your speed every 15 minutes, finishing at a comfortably hard tempo.`);
+            }
+            else if (runningGoal.includes('10km') || runningGoal.includes('5km')) {
+                 dayPlan.trainingProtocol = rand > 0.5 ?
+                    createRunningProtocol('Easy Run with Strides', `30-40 minutes at an easy pace. Finish with 4-6 repeats of 100m strides (fast but not sprinting) to work on turnover.`) :
+                    createRunningProtocol('Recovery Jog', `A short, 20-30 minute run at a very slow, relaxed pace to promote blood flow and recovery.`);
+            }
+            else { 
+                dayPlan.trainingProtocol = createRunningProtocol('Easy Foundational Run', `Run for 30-50 minutes at an easy, conversational pace to build your aerobic base.`);
+            }
             runningDaysScheduled++;
         });
     }
+    
+    const getTargetedFlexibility = (focuses, flexType, count) => {
+        const allFlexExercises = exerciseDatabase.flexibility[flexType];
+        
+        const detailedFocuses = new Set(focuses);
+        if(detailedFocuses.has('Upper Body')) { ['Chest', 'Back', 'Shoulders', 'Arms'].forEach(f => detailedFocuses.add(f)); }
+        if(detailedFocuses.has('Lower Body')) { ['Legs', 'Glutes', 'Hamstrings', 'Quads', 'Calves', 'Hips'].forEach(f => detailedFocuses.add(f)); }
+        if(detailedFocuses.has('Legs')) { ['Glutes', 'Hamstrings', 'Quads', 'Calves', 'Hips'].forEach(f => detailedFocuses.add(f)); }
 
+        let targetedExercises = allFlexExercises.filter(ex => 
+            detailedFocuses.size > 0 && ex.target.some(t => detailedFocuses.has(t))
+        );
+        
+        const fullBodyExercises = allFlexExercises.filter(ex => ex.target.includes('Full Body'));
+        targetedExercises.push(...fullBodyExercises);
+
+        targetedExercises = targetedExercises.filter((ex, index, self) => index === self.findIndex((e) => e.name === ex.name));
+
+        if (targetedExercises.length < count) {
+            const remainingExercises = allFlexExercises.filter(ex => !targetedExercises.some(tEx => tEx.name === ex.name));
+            targetedExercises.push(...remainingExercises);
+        }
+        
+        return [...targetedExercises].sort(() => 0.5 - Math.random()).slice(0, count);
+    }
 
     const assignLiftingSession = (type, focusList, dayPlan) => { 
-        const isBroadCategory = focusList.some(f => ['Full Body', 'Upper Body', 'Lower Body'].includes(f));
+        const isBroadCategory = focusList.some(f => ['Full Body'].includes(f));
         let sessionTitleFocus = focusList.join(' & ');
         if (isBroadCategory) {
-            sessionTitleFocus = focusList.find(f => ['Full Body', 'Upper Body', 'Lower Body'].includes(f)) || focusList.join(' & ');
+            sessionTitleFocus = focusList.find(f => ['Full Body'].includes(f)) || focusList.join(' & ');
         } else if (focusList.length > 2) { 
             sessionTitleFocus = `${focusList.slice(0,2).join(' & ')} & More`;
         }
-        const numPrimary = type === 'strength' ? (isBroadCategory ? 3 : (focusList.length > 1 ? 1 : 2) ) : (isBroadCategory ? 2 : 1) ; 
-        const numAccessory = type === 'strength' ? (isBroadCategory ? 2 : (focusList.length > 1 ? 2 : 2)) : (isBroadCategory ? 3 : 2);
+        const numPrimary = type === 'strength' ? (isBroadCategory ? 2 : (focusList.length > 1 ? 1 : 2) ) : (isBroadCategory ? 3 : (focusList.length > 1 ? 2: 3)); 
+        const numAccessory = type === 'strength' ? (isBroadCategory ? 3 : (focusList.length > 1 ? 3 : 2)) : (isBroadCategory ? 4 : 3);
         dayPlan.activity = `${type.charAt(0).toUpperCase() + type.slice(1)}: ${sessionTitleFocus}`;
         dayPlan.details = `Objective: ${type === 'strength' ? `Increase maximal strength in ${focusList.join(', ')}.` : `Stimulate muscle growth (hypertrophy) in ${focusList.join(', ')}.`}`;
-        let warmupDesc = `5-10 min light cardio (e.g., bike, rower, jump rope). Follow with dynamic mobility focusing on the joints and muscles to be worked for the session (e.g., ${getWarmupExercises(3).map(e=>e.name).join(', ')}). For primary lifts, perform 2-3 specific warm-up sets, gradually increasing weight towards your working sets.`;
+        
+        const targetedWarmup = getTargetedFlexibility(focusList, 'dynamic', 3);
+        const targetedCooldown = getTargetedFlexibility(focusList, 'static', 3);
+
+        let warmupDesc = `5-10 min light cardio (e.g., bike, rower). Follow with dynamic mobility drills specifically targeting the muscles for today's session: ${focusList.join(', ')}. Include specific warm-up sets for the primary lifts, gradually increasing the weight.`;
         let mainWorkoutDesc = `Execute ${numPrimary} primary ${type === 'strength' ? 'compound lifts' : 'exercises'} followed by ${numAccessory} accessory/isolation movements targeting ${focusList.join(', ')}. \n${type === 'strength' ? 'Execution Focus: Utilize heavy weight, aiming for low to moderate repetitions (typically 3-8 reps). Ensure full rest periods (2-5 minutes) between sets to maximize recovery and force output. Focus on explosive concentric (lifting) phases and controlled eccentric (lowering) phases. Aim to progressively overload by increasing weight or reps weekly.' : 'Execution Focus: Use moderate weight with moderate-to-high repetitions (typically 8-15 reps, sometimes up to 20 for isolation). Maintain a controlled tempo (e.g., 2-second eccentric, 0-1 second pause, 1-second concentric) to maximize time under tension. Implement shorter rest periods (60-90 seconds) to accumulate metabolic stress and induce a muscle pump.'}`;
-        let cooldownDesc = `5-10 min of static stretching for the primary muscles worked during the session (e.g., ${getCooldownExercises(3).map(e=>e.name).join(', ')}).`;
+        let cooldownDesc = `5-10 min of static stretching focusing on the muscles worked today (${focusList.join(', ')}). Holding each stretch will help improve flexibility and aid recovery.`;
+        
         dayPlan.trainingProtocol = [
-            { protocolStep: "Warm-up Protocol", description: warmupDesc, items: getWarmupExercises(3).map(ex => ({ ...ex, type: 'Warm-up Drill' })) },
+            { protocolStep: "Warm-up Protocol", description: warmupDesc, items: targetedWarmup.map(ex => ({ ...ex, type: 'Warm-up Drill' })) },
             { protocolStep: "Main Workout Protocol", description: mainWorkoutDesc, items: getLiftingExercises(type, focusList, numPrimary, numAccessory).map(ex => ({ ...ex, type: 'Main Lift' })) },
-            { protocolStep: "Cool-down Protocol", description: cooldownDesc, items: getCooldownExercises(3).map(ex => ({ ...ex, type: 'Cool-down Stretch' })) }
+            { protocolStep: "Cool-down Protocol", description: cooldownDesc, items: targetedCooldown.map(ex => ({ ...ex, type: 'Cool-down Stretch' })) }
         ];
     };
 
-    // 2. Strength Focus
-    let strengthSessionsScheduled = 0;
-    if (strengthFocus.length > 0) {
-        for(let i=0; i < numStrengthSessions; i++){
-            if(availableWorkoutDays.length === 0) break;
-            scheduleActivity(['Monday', 'Wednesday', 'Friday'], availableWorkoutDays, (dayPlan) => {
-                let currentStrengthFocus = strengthFocus;
-                if (numStrengthSessions > 1 && strengthFocus.length > 1 && strengthFocus.length > i * Math.ceil(strengthFocus.length / numStrengthSessions) ) { 
-                    const splitSize = Math.ceil(strengthFocus.length / numStrengthSessions);
-                    currentStrengthFocus = strengthFocus.slice(i * splitSize, (i + 1) * splitSize);
-                     if(currentStrengthFocus.length === 0) currentStrengthFocus = strengthFocus; 
-                } else if (numStrengthSessions > 1 && i > 0) { 
-                    currentStrengthFocus = ['Full Body']; 
+    // --- NEW LIFTING SPLIT LOGIC ---
+    const scheduleLiftingDays = (type, focusPool, numSessions) => {
+        if (numSessions === 0 || !focusPool || focusPool.length === 0) return;
+
+        let dayAssignments = [];
+        let tempPool = [...focusPool];
+
+        // If 'Full Body' is explicitly chosen, all sessions of this type are 'Full Body'
+        if (tempPool.includes('Full Body')) {
+            dayAssignments = Array(numSessions).fill(['Full Body']);
+        } else {
+            const pairings = {
+                'Chest': ['Shoulders', 'Arms'],
+                'Back': ['Arms'],
+                'Shoulders': ['Chest', 'Arms'],
+                'Legs': ['Core'],
+                'Core': ['Legs'],
+                'Arms': ['Chest', 'Back', 'Shoulders'],
+            };
+            const assignedFocuses = new Set();
+            
+            // Prioritize creating logical groups based on the number of sessions
+            if (numSessions >= tempPool.length) {
+                // If enough days, each focus gets its own day
+                dayAssignments = tempPool.map(focus => [focus]);
+            } else {
+                // Not enough days, so we must group muscles
+                const groupOrder = ['Chest', 'Back', 'Legs', 'Shoulders', 'Arms', 'Core'];
+                const sortedPool = tempPool.sort((a, b) => groupOrder.indexOf(a) - groupOrder.indexOf(b));
+
+                while (assignedFocuses.size < sortedPool.length) {
+                    if (dayAssignments.length >= numSessions) break;
+
+                    const currentFocus = sortedPool.find(f => !assignedFocuses.has(f));
+                    if (!currentFocus) break;
+
+                    const newGroup = [currentFocus];
+                    assignedFocuses.add(currentFocus);
+
+                    // Find a partner
+                    if (pairings[currentFocus]) {
+                        for (const partner of pairings[currentFocus]) {
+                            if (sortedPool.includes(partner) && !assignedFocuses.has(partner)) {
+                                newGroup.push(partner);
+                                assignedFocuses.add(partner);
+                                break; // Take the first logical partner
+                            }
+                        }
+                    }
+                    dayAssignments.push(newGroup);
                 }
-                assignLiftingSession('strength', currentStrengthFocus, dayPlan);
-                if (i > 0) dayPlan.details = `Secondary strength session. ${dayPlan.details}`;
-                strengthSessionsScheduled++;
-            });
-        }
-    }
-    
-    // 3. Hypertrophy Focus
-    let hypertrophySessionsScheduled = 0;
-    if (hypertrophyFocus.length > 0) {
-         for(let i=0; i < numHypertrophySessions; i++){
-            if(availableWorkoutDays.length === 0) break;
-            scheduleActivity(['Wednesday', 'Friday', 'Monday'], availableWorkoutDays, (dayPlan) => {
-                let currentHypertrophyFocus = hypertrophyFocus;
-                 if (numHypertrophySessions > 1 && hypertrophyFocus.length > 1 && hypertrophyFocus.length > i * Math.ceil(hypertrophyFocus.length / numHypertrophySessions)) {
-                    const splitSize = Math.ceil(hypertrophyFocus.length / numHypertrophySessions);
-                    currentHypertrophyFocus = hypertrophyFocus.slice(i * splitSize, (i + 1) * splitSize);
-                     if(currentHypertrophyFocus.length === 0) currentHypertrophyFocus = hypertrophyFocus;
-                } else if (numHypertrophySessions > 1 && i > 0) {
-                    currentHypertrophyFocus = ['Full Body'];
+                
+                // Distribute any remaining unassigned focuses into existing groups
+                let groupIndex = 0;
+                for(const focus of sortedPool) {
+                    if(!assignedFocuses.has(focus)) {
+                        dayAssignments[groupIndex % dayAssignments.length].push(focus);
+                        groupIndex++;
+                    }
                 }
-                assignLiftingSession('hypertrophy', currentHypertrophyFocus, dayPlan);
-                 if (i > 0) dayPlan.details = `Secondary hypertrophy session. ${dayPlan.details}`;
-                hypertrophySessionsScheduled++;
-            });
+            }
         }
-    }
+        
+        // Fill any remaining lifting days with Full Body workouts
+        while (dayAssignments.length < numSessions) {
+            dayAssignments.push(['Full Body']);
+        }
+
+        // Schedule the generated lifting days
+        dayAssignments.forEach((focusGroup, i) => {
+            if (availableWorkoutDays.length === 0) return;
+            const preferredDays = (i % 2 === 0) ? ['Monday', 'Wednesday', 'Friday', 'Tuesday'] : ['Tuesday', 'Thursday', 'Saturday', 'Monday'];
+            scheduleActivity(preferredDays, availableWorkoutDays, (dayPlan) => {
+                assignLiftingSession(type, focusGroup, dayPlan);
+            });
+        });
+    };
+
+    scheduleLiftingDays('strength', strengthFocus, numStrengthSessions);
+    scheduleLiftingDays('hypertrophy', hypertrophyFocus, numHypertrophySessions);
     
-    // 4. Sport Specific Training 
     if (numSportSessions > 0 && sport && !sport.toLowerCase().includes('general') && !sport.toLowerCase().includes('recovery focus') && !sport.toLowerCase().includes('running (all distances)')) {
         let sportSessionsCount = 0;
         while(sportSessionsCount < numSportSessions && availableWorkoutDays.length > 0){
@@ -498,63 +622,51 @@ const generateWeeklyPlan = (inputs) => {
                 let sportConditioningItems = [];
 
                 if (sport.toLowerCase().includes('soccer')) {
-                    sportSkillItems = [
-                        { name: 'Dribbling Drills (Cones, Agility)', duration: '10 min'},
-                        { name: 'Passing & Receiving Drills (Short & Long)', duration: '10 min'},
-                        { name: 'Shooting Practice (Stationary & Moving Ball)', duration: '10 min'}
-                    ];
-                    sportConditioningItems = [
-                        { name: 'Agility Ladder & Cone Drills', sets: '3-4', reps: 'various patterns', rest: '60s'},
-                        { name: 'Repeated Sprint Ability (e.g., 6x30m sprints, 30s rest)', sets: '2-3', reps: '6 sprints'}
-                    ];
+                    sportSkillItems = [ { name: 'Dribbling Drills (Cones, Agility)', duration: '10 min'}, { name: 'Passing & Receiving Drills (Short & Long)', duration: '10 min'}, { name: 'Shooting Practice (Stationary & Moving Ball)', duration: '10 min'} ];
+                    sportConditioningItems = [ { name: 'Agility Ladder & Cone Drills', sets: '3-4', reps: 'various patterns', rest: '60s'}, { name: 'Repeated Sprint Ability (e.g., 6x30m sprints, 30s rest)', sets: '2-3', reps: '6 sprints'} ];
                 } else if (sport.toLowerCase().includes('basketball')) {
-                     sportSkillItems = [
-                        { name: 'Ball Handling Drills (Stationary & Moving)', duration: '10 min'},
-                        { name: 'Shooting Form & Practice (Free Throws, Jump Shots)', duration: '15 min'},
-                        { name: 'Layup & Finishing Drills', duration: '10 min'}
-                    ];
-                    sportConditioningItems = [
-                        { name: 'Defensive Slide Drills (Cone to Cone)', sets: '3-4', reps: '30-45s', rest: '60s'},
-                        { name: 'Suicide Sprints / Shuttle Runs', sets: '3-5', reps: 'Full court'}
-                    ];
+                     sportSkillItems = [ { name: 'Ball Handling Drills (Stationary & Moving)', duration: '10 min'}, { name: 'Shooting Form & Practice (Free Throws, Jump Shots)', duration: '15 min'}, { name: 'Layup & Finishing Drills', duration: '10 min'} ];
+                     sportConditioningItems = [ { name: 'Defensive Slide Drills (Cone to Cone)', sets: '3-4', reps: '30-45s', rest: '60s'}, { name: 'Suicide Sprints / Shuttle Runs', sets: '3-5', reps: 'Full court'} ];
                 } else if (sport.toLowerCase().includes('combat')) { 
-                    sportSkillItems = [
-                        { name: 'Shadow Boxing / Movement Drills', duration: '10-15 min'},
-                        { name: 'Heavy Bag Work (Combinations, Power)', sets:'3-5', reps:'2-3 min rounds'},
-                        { name: 'Partner Drills / Light Sparring (If applicable)', duration: '10-15 min'}
-                    ];
-                     sportConditioningItems = [
-                        { name: 'High-Intensity Interval Rounds (e.g., Assault Bike, Burpees, Slams)', sets: '3-5', reps: '3 min on, 1 min off'}
-                    ];
+                    sportSkillItems = [ { name: 'Shadow Boxing / Movement Drills', duration: '10-15 min'}, { name: 'Heavy Bag Work (Combinations, Power)', sets:'3-5', reps:'2-3 min rounds'}, { name: 'Partner Drills / Light Sparring (If applicable)', duration: '10-15 min'} ];
+                     sportConditioningItems = [ { name: 'High-Intensity Interval Rounds (e.g., Assault Bike, Burpees, Slams)', sets: '3-5', reps: '3 min on, 1 min off'} ];
                 } else { 
                      sportSkillItems = [{ name: `${sport} Specific Drills`, duration: '20-30 min' }];
                      sportConditioningItems = [{ name: `${sport} Conditioning`, duration: '15-20 min' }];
                 }
-
+                const sportWarmups = getTargetedFlexibility(['Full Body'], 'dynamic', 4);
+                const sportCooldowns = getTargetedFlexibility(['Full Body'], 'static', 4);
 
                 dayPlan.trainingProtocol = [
-                    { protocolStep: "Warm-up Protocol", description: sportWarmupDesc, items: [{ name: `Dynamic Warm-up for ${sport}`, duration: '10-15 min', type: 'Warm-up' }] },
+                    { protocolStep: "Warm-up Protocol", description: sportWarmupDesc, items: sportWarmups.map(item => ({...item, type: 'Warm-up'})) },
                     { protocolStep: "Skill Development Protocol", description: `Focus on refining key techniques and tactical understanding for ${sport}.`, items: sportSkillItems.map(item => ({...item, type: 'Skill'})) },
                     { protocolStep: "Conditioning Protocol", description: `Build endurance, speed, and power specific to the demands of ${sport}.`, items: sportConditioningItems.map(item => ({...item, type: 'Conditioning'})) },
-                    { protocolStep: "Cool-down Protocol", description: sportCooldownDesc, items: [{ name: 'Cool-down & Stretch', duration: '5-10 min', type: 'Cool-down' }] }
+                    { protocolStep: "Cool-down Protocol", description: sportCooldownDesc, items: sportCooldowns.map(item => ({...item, type: 'Cool-down'})) }
                 ];
                 sportSessionsCount++;
             });
         }
     }
 
-    // Fill any truly leftover "Workout" days as Light Active Recovery
-     plan.forEach(p => {
-        if (p.activity === 'Workout') { 
-            p.activity = 'Light Active Recovery / Mobility';
-            p.details = `Objective: Promote recovery or enjoy a different low-stress activity.`;
-            p.trainingProtocol = [
-                { protocolStep: "Activity Choice", description: "Choose one of the following:", items: [
-                    {name: 'Easy Cycling or Swimming', duration: '20-30 min (Low Intensity)', type: 'Cardio'}, 
-                    {name: 'Full Body Mobility Flow', duration: '20-25 min', type: 'Mobility'},
-                    {name: 'Gentle Yoga or Tai Chi', duration: '20-30 min', type: 'Flexibility/Mindfulness'}
-                ]}
-            ];
+    // --- NEW LOGIC FOR ASSIGNING REST AND RECOVERY DAYS ---
+    let activeRecoveryDayAssigned = false;
+    dayOrder.forEach(day => {
+        const dayPlan = plan.find(p => p.day === day);
+        // If a day is still marked as 'Workout', it's an unassigned day.
+        if (dayPlan.activity === 'Workout') { 
+            // Prefer Sunday as the primary full rest day
+            if (day === 'Sunday') {
+                 Object.assign(dayPlan, fullRestProtocol);
+            } 
+            // Assign the first available non-training day as Active Recovery
+            else if (!activeRecoveryDayAssigned) {
+                Object.assign(dayPlan, activeRecoveryProtocol);
+                activeRecoveryDayAssigned = true;
+            } 
+            // All other unassigned days become Full Rest
+            else {
+                 Object.assign(dayPlan, fullRestProtocol);
+            }
         }
     });
 
@@ -566,8 +678,8 @@ const generateWeeklyPlan = (inputs) => {
 function App() {
   const [currentPage, setCurrentPage] = useState('home'); 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [savedPlans, setSavedPlans] = useState([]); // State for saved plans
-  const [theme, setTheme] = useState('dark'); // 'light' or 'dark'
+  const [savedPlans, setSavedPlans] = useState([]);
+  const [theme, setTheme] = useState('dark');
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -580,17 +692,7 @@ function App() {
     } else {
       document.documentElement.classList.remove('dark');
     }
-    // Optional: Save theme preference to localStorage
-    // localStorage.setItem('theme', theme);
   }, [theme]);
-
-  // Optional: Load theme from localStorage on initial load
-  // useEffect(() => {
-  //   const savedTheme = localStorage.getItem('theme');
-  //   if (savedTheme) {
-  //     setTheme(savedTheme);
-  //   }
-  // }, []);
 
 
   const navigateTo = (page) => {
@@ -602,12 +704,13 @@ function App() {
   const addSavedPlan = (planToSave, inputs) => {
     const newSavedPlan = {
         id: `plan-${Date.now()}`, 
-        name: `Plan for ${inputs.sport} (${new Date().toLocaleDateString()})`,
+        name: `Plan for ${inputs.sport || 'General Fitness'} (${new Date().toLocaleDateString()})`,
         inputs: {...inputs}, 
         plan: planToSave, 
         dateSaved: new Date().toISOString()
     };
     setSavedPlans(prevPlans => [newSavedPlan, ...prevPlans]);
+    // Replace alert with a more modern notification if possible, but for now it works.
     alert("Plan saved successfully!"); 
   };
 
@@ -628,9 +731,9 @@ function App() {
   }, [isMobileMenuOpen]);
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans ${theme === 'light' ? 'bg-slate-100 text-slate-900' : 'bg-slate-900 text-slate-200'}`}>
+    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 ${theme === 'light' ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-slate-200'}`}>
       <Navbar navigateTo={navigateTo} isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} theme={theme} toggleTheme={toggleTheme} currentPage={currentPage} />
-      <main className="flex-grow container mx-auto px-4 py-8 pt-24 md:pt-28">
+      <main className="flex-grow container mx-auto px-4 py-8 pt-20 md:pt-24">
         {currentPage === 'home' && <HomePage navigateTo={navigateTo} addSavedPlan={addSavedPlan} />}
         {currentPage === 'savedWorkouts' && <SavedWorkoutsPage savedPlans={savedPlans} navigateTo={navigateTo} deleteSavedPlan={deleteSavedPlan} />}
         {currentPage === 'feedback' && <FeedbackPage />}
@@ -651,88 +754,84 @@ const Navbar = ({ navigateTo, isMobileMenuOpen, setIsMobileMenuOpen, theme, togg
   const baseTextColor = theme === 'light' ? 'text-slate-600' : 'text-slate-300'; 
   const hoverTextColor = 'hover:text-orange-600 dark:hover:text-orange-400';
   const activeTextColor = 'text-orange-500 dark:text-orange-400';
-  const logoBaseTextColor = theme === 'light' ? 'text-slate-800' : 'text-slate-100'; // For "thetics" part
+  const logoBaseTextColor = theme === 'light' ? 'text-slate-800' : 'text-slate-100';
   const logoAccentColor = 'text-orange-500 dark:text-orange-400';
-  const navBgColor = theme === 'light' ? 'bg-white/90 dark:bg-slate-950/90' : 'bg-slate-950/90'; 
-
+  const navBgColor = theme === 'light' ? 'bg-white/80' : 'bg-slate-950/80'; 
 
   return (
-    <nav className={`${navBgColor} backdrop-blur-lg shadow-xl fixed w-full z-50 top-0`}> 
+    <nav className={`${navBgColor} backdrop-blur-lg fixed w-full z-50 top-0 border-b border-slate-200/50 dark:border-slate-800/50`}> 
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16"> 
           <div 
             className="flex items-center space-x-2 cursor-pointer group"
             onClick={() => navigateTo('home')}
           >
-            <Dumbbell size={32} className={`${logoAccentColor} group-hover:opacity-90 transition-all duration-200 ease-in-out`} />
-            <span className={`text-xl md:text-2xl font-bold tracking-normal`}>
-                <span className={`${logoAccentColor} group-hover:opacity-80 transition-opacity duration-200 ease-in-out`}>Bans</span>
-                <span className={`${logoBaseTextColor} group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors duration-200 ease-in-out`}>thetics</span>
+            <Dumbbell size={30} className={`${logoAccentColor} group-hover:rotate-[-15deg] transition-transform duration-300 ease-in-out`} />
+            <span className={`text-xl md:text-2xl font-bold tracking-tight`}>
+                <span className={`${logoAccentColor}`}>Bans</span>
+                <span className={`${logoBaseTextColor}`}>thetics</span>
             </span>
           </div>
           
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center"> 
+          <div className="hidden md:flex items-center space-x-1"> 
             {navItems.map(item => (
               <button
                 key={item.page}
                 onClick={() => navigateTo(item.page)}
-                className={`flex items-center space-x-1.5 transition-colors px-3 py-2 rounded-md text-sm font-semibold group
+                className={`flex items-center space-x-2 transition-colors px-3 py-2 rounded-lg text-sm font-semibold group
                             ${currentPage === item.page 
-                                ? `${activeTextColor} ` 
-                                : `${baseTextColor} ${hoverTextColor}`
+                                ? `${activeTextColor} bg-orange-500/10` 
+                                : `${baseTextColor} ${hoverTextColor} hover:bg-slate-500/10`
                             }
                            `} 
               >
-                {React.cloneElement(item.icon, { className: `transition-colors ${currentPage === item.page ? activeTextColor : `group-hover:${logoAccentColor}`}`})}
+                {React.cloneElement(item.icon, { className: `transition-colors`})}
                 <span>{item.label}</span>
               </button>
             ))}
              <button
                 onClick={toggleTheme}
                 aria-label="Toggle theme"
-                className={`p-2 rounded-full ${baseTextColor} ${hoverTextColor} hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors ml-3`}
+                className={`p-2 rounded-lg ${baseTextColor} ${hoverTextColor} hover:bg-slate-500/10 transition-colors ml-2`}
             >
                 {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
           </div>
 
-          {/* Mobile Menu Button & Theme Toggle */}
           <div className="md:hidden flex items-center">
              <button
                 onClick={toggleTheme}
                 aria-label="Toggle theme"
-                className={`p-2 rounded-full ${baseTextColor} ${hoverTextColor} hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors mr-1`}
+                className={`p-2 rounded-full ${baseTextColor} ${hoverTextColor} hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors mr-1`}
             >
-                {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
+                {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`${baseTextColor} ${hoverTextColor} focus:outline-none p-2 rounded-md`}
               aria-label="Open menu"
             >
-              {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className={`md:hidden ${theme === 'light' ? 'bg-white' : 'bg-slate-900'} absolute w-full left-0 top-16 shadow-xl rounded-b-lg border-t ${theme === 'light' ? 'border-slate-200' : 'border-slate-700'}`}> 
+        <div className={`md:hidden ${theme === 'light' ? 'bg-white' : 'bg-slate-900'} absolute w-full left-0 top-16 shadow-lg`}> 
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map(item => (
               <button
                 key={item.page}
                 onClick={() => navigateTo(item.page)}
-                className={`w-full flex items-center space-x-3  transition-colors px-3 py-3 rounded-md text-sm font-medium group
+                className={`w-full flex items-center space-x-3 transition-colors px-3 py-3 rounded-md text-base font-medium group
                             ${currentPage === item.page 
                                 ? `${activeTextColor} ${theme === 'light' ? 'bg-orange-50' : 'bg-orange-500/10'}` 
                                 : `${baseTextColor} ${theme === 'light' ? 'hover:bg-slate-100' : 'hover:bg-slate-800'} ${hoverTextColor}`
                             }
                 `} 
               >
-                {React.cloneElement(item.icon, { size: 20, className: `transition-colors ${currentPage === item.page ? activeTextColor : `group-hover:${logoAccentColor}`}`})}
+                {React.cloneElement(item.icon, { size: 20 })}
                 <span>{item.label}</span>
               </button>
             ))}
@@ -743,14 +842,13 @@ const Navbar = ({ navigateTo, isMobileMenuOpen, setIsMobileMenuOpen, theme, togg
   );
 };
 
-// Toggle Switch Component - NOW DEFINED
 const ToggleSwitch = ({ enabled, setEnabled }) => {
     return (
         <button
             type="button"
             className={`${
                 enabled ? 'bg-orange-500 dark:bg-orange-600' : 'bg-slate-300 dark:bg-slate-600'
-            } relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 dark:ring-offset-slate-800`}
+            } relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 dark:ring-offset-slate-900`}
             role="switch"
             aria-checked={enabled}
             onClick={setEnabled}
@@ -772,7 +870,7 @@ const HomePage = ({ navigateTo, addSavedPlan }) => {
       includeSport: true,
       includeRunning: true,
       includeStrength: true,
-      includeHypertrophy: false,
+      includeHypertrophy: true,
   });
   
   const [selectedSport, setSelectedSport] = useState(categorizedSportsOptions[1]?.options[0] || ""); 
@@ -780,7 +878,7 @@ const HomePage = ({ navigateTo, addSavedPlan }) => {
   const [hypertrophyFocus, setHypertrophyFocus] = useState([]); 
   const [selectedRunningGoal, setSelectedRunningGoal] = useState(runningGoalOptions[0]);
   const [focusBalance, setFocusBalance] = useState(0); 
-  const [trainingDays, setTrainingDays] = useState(6);
+  const [trainingDays, setTrainingDays] = useState(5);
   
   const [currentInputs, setCurrentInputs] = useState(null); 
   const [generatedWeeklyPlan, setGeneratedWeeklyPlan] = useState(null);
@@ -790,7 +888,6 @@ const HomePage = ({ navigateTo, addSavedPlan }) => {
   const handleToggle = (pref) => {
       setPreferences(prev => {
           const newState = {...prev, [pref]: !prev[pref]};
-          // Reset data if toggled off
           if (pref === 'includeSport' && !newState.includeSport) setSelectedSport('');
           if (pref === 'includeStrength' && !newState.includeStrength) setStrengthFocus([]);
           if (pref === 'includeHypertrophy' && !newState.includeHypertrophy) setHypertrophyFocus([]);
@@ -800,11 +897,7 @@ const HomePage = ({ navigateTo, addSavedPlan }) => {
   };
 
   const handleMultiSelectChange = (setter, currentValue, option) => {
-    if (currentValue.includes(option)) {
-      setter(currentValue.filter(item => item !== option));
-    } else {
-      setter([...currentValue, option]);
-    }
+    setter(currentValue.includes(option) ? currentValue.filter(item => item !== option) : [...currentValue, option]);
   };
 
   const handleGeneratePlan = () => {
@@ -826,10 +919,16 @@ const HomePage = ({ navigateTo, addSavedPlan }) => {
     setCurrentInputs(inputsForPlan); 
 
     setTimeout(() => {
-      const plan = generateWeeklyPlan(inputsForPlan);
-      setGeneratedWeeklyPlan(plan);
-      setIsLoading(false);
-    }, 2000); 
+      try {
+        const plan = generateWeeklyPlan(inputsForPlan);
+        setGeneratedWeeklyPlan(plan);
+      } catch (e) {
+        setError("An error occurred while generating the plan. Please check your inputs and try again.");
+        console.error(e);
+      } finally {
+        setIsLoading(false);
+      }
+    }, 1500); 
   };
 
   const handleSavePlan = () => {
@@ -849,7 +948,7 @@ const HomePage = ({ navigateTo, addSavedPlan }) => {
   const handleGenerateMoreExercises = (day, protocolStepName) => {
     if (!generatedWeeklyPlan || !currentInputs) return;
 
-    const newPlan = JSON.parse(JSON.stringify(generatedWeeklyPlan)); // Deep copy
+    const newPlan = JSON.parse(JSON.stringify(generatedWeeklyPlan));
     const dayIndex = newPlan.findIndex(d => d.day === day);
     if (dayIndex === -1) return;
 
@@ -860,198 +959,165 @@ const HomePage = ({ navigateTo, addSavedPlan }) => {
     const existingExerciseNames = currentProtocolStep.items.map(item => item.name);
     
     let exerciseCategory = '';
-    let exerciseSubCategory = []; // Can be an array for lifting focuses
+    let exerciseSubCategory = [];
 
     if (protocolStepName.toLowerCase().includes('warm-up')) {
         exerciseCategory = 'flexibility';
-        exerciseSubCategory = 'Dynamic Mobility (Pre-workout)';
+        exerciseSubCategory = 'dynamic';
     } else if (protocolStepName.toLowerCase().includes('cool-down')) {
         exerciseCategory = 'flexibility';
-        exerciseSubCategory = 'Static Stretching (Post-workout)';
+        exerciseSubCategory = 'static';
     } else if (protocolStepName.toLowerCase().includes('main workout')) {
-        if (newPlan[dayIndex].activity.toLowerCase().includes('strength')) {
+        const activityTitle = newPlan[dayIndex].activity.toLowerCase();
+        if (activityTitle.includes('strength')) {
             exerciseCategory = 'strength';
             exerciseSubCategory = currentInputs.strengthFocus; 
-            const activityTitleFocuses = newPlan[dayIndex].activity.split(': ')[1];
-            if (activityTitleFocuses && !activityTitleFocuses.toLowerCase().includes('full body') && !activityTitleFocuses.toLowerCase().includes('upper body') && !activityTitleFocuses.toLowerCase().includes('lower body')) {
-                exerciseSubCategory = activityTitleFocuses.split(' & ').map(s => s.replace(' Focus', '').trim());
-            }
-
-
-        } else if (newPlan[dayIndex].activity.toLowerCase().includes('hypertrophy')) {
+        } else if (activityTitle.includes('hypertrophy')) {
             exerciseCategory = 'hypertrophy';
             exerciseSubCategory = currentInputs.hypertrophyFocus; 
-            const activityTitleFocuses = newPlan[dayIndex].activity.split(': ')[1];
-             if (activityTitleFocuses && !activityTitleFocuses.toLowerCase().includes('full body') && !activityTitleFocuses.toLowerCase().includes('upper body') && !activityTitleFocuses.toLowerCase().includes('lower body')) {
-                exerciseSubCategory = activityTitleFocuses.split(' & ').map(s => s.replace(' Focus', '').trim());
-            }
+        }
+        const activityTitleFocuses = newPlan[dayIndex].activity.split(': ')[1];
+        if (activityTitleFocuses) {
+          const focuses = activityTitleFocuses.split(' & ').map(s => s.replace(' Focus', '').trim());
+          if (focuses.length > 0 && !focuses.some(f => ['Full Body', 'Upper Body', 'Lower Body'].includes(f))) {
+            exerciseSubCategory = focuses;
+          }
         }
     }
 
-    if (exerciseCategory && exerciseSubCategory) {
+    if (exerciseCategory && exerciseSubCategory.length > 0) {
         const additionalExercises = getAdditionalExercisesFromDb(exerciseCategory, exerciseSubCategory, 2, existingExerciseNames);
         if (additionalExercises.length > 0) {
             currentProtocolStep.items.push(...additionalExercises.map(ex => ({...ex, type: 'Additional'})));
         } else {
-            if (!currentProtocolStep.items.find(item => item.name === "No more unique exercises found")) {
-                 currentProtocolStep.items.push({ name: "No more unique exercises found for this selection.", type: "Info" });
+            if (!currentProtocolStep.items.find(item => item.name.includes("No more unique"))) {
+                 currentProtocolStep.items.push({ name: "No more unique exercises found.", type: "Info" });
             }
         }
         setGeneratedWeeklyPlan(newPlan);
     }
 };
 
+  const inputStyles = "w-full bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 py-2.5 px-3 rounded-lg focus:ring-2 focus:ring-orange-500 dark:focus:ring-orange-400 focus:border-orange-500 dark:focus:border-orange-400 outline-none transition";
+  const sectionTitleStyles = "text-base font-semibold text-slate-800 dark:text-slate-100";
 
   return (
-    <div className="py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-5xl sm:text-6xl font-extrabold mb-4 tracking-tight flex items-center justify-center dark:text-slate-100 text-slate-900">
-          <Brain size={60} className="mr-4 text-orange-500 dark:text-orange-400" />
-          AI Hybrid <span className="text-orange-500 dark:text-orange-400 ml-2">Routine Builder</span>
+    <div className="py-6 sm:py-10">
+      <div className="text-center mb-10">
+        <h1 className="text-4xl sm:text-5xl font-extrabold mb-3 tracking-tight flex items-center justify-center dark:text-slate-100 text-slate-900">
+          <Brain size={48} className="mr-3 text-orange-500 dark:text-orange-400" />
+          AI Hybrid Routine Builder
         </h1>
-        <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          Craft your weekly hybrid training plan. Balance strength, endurance, and flexibility.
+        <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          Craft a balanced weekly training plan tailored to your hybrid fitness goals.
         </p>
       </div>
 
-      <div className="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-xl shadow-2xl">
-        <div className="space-y-8 mb-6"> 
-          <div className="border-b border-slate-200 dark:border-slate-700 pb-6">
-             <label htmlFor="trainingDays" className="block text-base font-semibold text-slate-700 dark:text-slate-100 mb-2">How many days a week will you train?</label>
-            <select id="trainingDays" value={trainingDays} onChange={(e) => setTrainingDays(parseInt(e.target.value, 10))}
-              className="w-full bg-slate-100 dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 py-3 px-4 rounded-lg focus:ring-2 focus:ring-orange-500 dark:focus:ring-orange-400 focus:border-orange-500 dark:focus:border-orange-400 outline-none">
-                <option value={2}>2 Days</option>
-                <option value={3}>3 Days</option>
-                <option value={4}>4 Days</option>
-                <option value={5}>5 Days</option>
-                <option value={6}>6 Days</option>
+      <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900/50 p-6 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-800">
+        <div className="space-y-6"> 
+          <div className="border-b border-slate-200 dark:border-slate-800 pb-6">
+             <label htmlFor="trainingDays" className={`${sectionTitleStyles} mb-2 block`}>How many days a week will you train?</label>
+            <select id="trainingDays" value={trainingDays} onChange={(e) => setTrainingDays(parseInt(e.target.value, 10))} className={inputStyles}>
+                {[1, 2, 3, 4, 5, 6, 7].map(day => <option key={day} value={day}>{day} Day{day > 1 ? 's' : ''}</option>)}
             </select>
           </div>
 
-          {/* Optional Sections with Toggles */}
-          <div className="space-y-8">
-            <div className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg">
-                <div className="flex justify-between items-center mb-2">
-                    <label className="text-base font-semibold text-slate-700 dark:text-slate-100">Primary Sport</label>
+          <div className="space-y-4">
+            <div className="p-4 border border-slate-200 dark:border-slate-800 rounded-xl">
+                <div className="flex justify-between items-center mb-3">
+                    <label className={sectionTitleStyles}>Primary Sport</label>
                     <ToggleSwitch enabled={preferences.includeSport} setEnabled={() => handleToggle('includeSport')} />
                 </div>
                 {preferences.includeSport && (
-                    <select id="sport" value={selectedSport} onChange={(e) => setSelectedSport(e.target.value)}
-                      className="w-full bg-slate-100 dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 py-3 px-4 rounded-lg focus:ring-2 focus:ring-orange-500 dark:focus:ring-orange-400 focus:border-orange-500 dark:focus:border-orange-400 outline-none mt-2">
+                    <select id="sport" value={selectedSport} onChange={(e) => setSelectedSport(e.target.value)} className={inputStyles}>
                       {categorizedSportsOptions.map(categoryGroup => (
-                        categoryGroup.options[0] === "" ? 
-                          <option key={categoryGroup.category} value="">{categoryGroup.category}</option>
-                        :
+                        categoryGroup.options[0] === "" ? <option key={categoryGroup.category} value="">{categoryGroup.category}</option> :
                         <optgroup key={categoryGroup.category} label={categoryGroup.category}>
-                          {categoryGroup.options.map(sport => (
-                            <option key={sport} value={sport}>{sport}</option>
-                          ))}
+                          {categoryGroup.options.map(sport => (<option key={sport} value={sport}>{sport}</option>))}
                         </optgroup>
                       ))}
                     </select>
                 )}
             </div>
 
-            <div className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg">
-                <div className="flex justify-between items-center mb-2">
-                    <label className="text-base font-semibold text-slate-700 dark:text-slate-100">Running Goal</label>
+            <div className="p-4 border border-slate-200 dark:border-slate-800 rounded-xl">
+                <div className="flex justify-between items-center mb-3">
+                    <label className={sectionTitleStyles}>Running Goal</label>
                     <ToggleSwitch enabled={preferences.includeRunning} setEnabled={() => handleToggle('includeRunning')} />
                 </div>
-                {preferences.includeRunning && (
-                    <select id="runningGoal" value={selectedRunningGoal} onChange={(e) => setSelectedRunningGoal(e.target.value)}
-                      className="w-full bg-slate-100 dark:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 py-3 px-4 rounded-lg focus:ring-2 focus:ring-orange-500 dark:focus:ring-orange-400 focus:border-orange-500 dark:focus:border-orange-400 outline-none mt-2">
+                {preferences.includeRunning && (<select id="runningGoal" value={selectedRunningGoal} onChange={(e) => setSelectedRunningGoal(e.target.value)} className={inputStyles}>
                       {runningGoalOptions.map(goal => <option key={goal} value={goal}>{goal}</option>)}
-                    </select>
-                )}
+                    </select>)}
             </div>
 
-            <div className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg">
-                <div className="flex justify-between items-center mb-2">
-                    <label className="text-base font-semibold text-slate-700 dark:text-slate-100">Strength Focus</label>
-                    <ToggleSwitch enabled={preferences.includeStrength} setEnabled={() => handleToggle('includeStrength')} />
-                </div>
-                {preferences.includeStrength && (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mt-2">
-                    {muscleGroupOptions.map(group => (
-                      <button key={group} onClick={() => handleMultiSelectChange(setStrengthFocus, strengthFocus, group)}
-                        className={`py-2 px-3 rounded-md text-sm font-medium transition-colors w-full border-2
-                          ${strengthFocus.includes(group) ? 'bg-orange-500 dark:bg-orange-600 border-orange-500 dark:border-orange-500 text-white' : 'bg-slate-100 dark:bg-slate-700 border-slate-300 dark:border-slate-600 hover:border-orange-500 dark:hover:border-orange-400 text-slate-700 dark:text-slate-200'}`}>
-                        {group}
-                      </button>
-                    ))}
+            <div className="p-4 border border-slate-200 dark:border-slate-800 rounded-xl">
+              <div className="flex justify-between items-center mb-1">
+                  <label className={sectionTitleStyles}>Muscle Groups for Strength</label>
+                  <ToggleSwitch enabled={preferences.includeStrength} setEnabled={() => handleToggle('includeStrength')} />
+              </div>
+              {preferences.includeStrength && (
+                <>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">Select the muscle groups you want to train for pure strength (lower reps, heavier weight).</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                      {muscleGroupOptions.map(group => (
+                        <button key={group} onClick={() => handleMultiSelectChange(setStrengthFocus, strengthFocus, group)}
+                          className={`py-2 px-2.5 rounded-md text-sm font-medium transition-all duration-150 w-full border
+                            ${strengthFocus.includes(group) ? 'bg-orange-500 border-orange-500 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 hover:border-orange-400 dark:hover:border-orange-500 text-slate-700 dark:text-slate-200'}`}>
+                          {group}
+                        </button>
+                      ))}
                   </div>
-                )}
+                </>
+              )}
             </div>
             
-            <div className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg">
-                <div className="flex justify-between items-center mb-2">
-                    <label className="text-base font-semibold text-slate-700 dark:text-slate-100">Hypertrophy Focus</label>
-                    <ToggleSwitch enabled={preferences.includeHypertrophy} setEnabled={() => handleToggle('includeHypertrophy')} />
-                </div>
-                {preferences.includeHypertrophy && (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mt-2">
-                    {muscleGroupOptions.map(group => (
-                      <button key={group} onClick={() => handleMultiSelectChange(setHypertrophyFocus, hypertrophyFocus, group)}
-                        className={`py-2 px-3 rounded-md text-sm font-medium transition-colors w-full border-2
-                          ${hypertrophyFocus.includes(group) ? 'bg-orange-500 dark:bg-orange-600 border-orange-500 dark:border-orange-500 text-white' : 'bg-slate-100 dark:bg-slate-700 border-slate-300 dark:border-slate-600 hover:border-orange-500 dark:hover:border-orange-400 text-slate-700 dark:text-slate-200'}`}>
-                        {group}
-                      </button>
-                    ))}
+            <div className="p-4 border border-slate-200 dark:border-slate-800 rounded-xl">
+              <div className="flex justify-between items-center mb-1">
+                  <label className={sectionTitleStyles}>Muscle Groups for Hypertrophy (Size)</label>
+                  <ToggleSwitch enabled={preferences.includeHypertrophy} setEnabled={() => handleToggle('includeHypertrophy')} />
+              </div>
+              {preferences.includeHypertrophy && (
+                <>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">Select the muscle groups you want to train for muscle growth (higher reps, moderate weight).</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                      {muscleGroupOptions.map(group => (
+                        <button key={group} onClick={() => handleMultiSelectChange(setHypertrophyFocus, hypertrophyFocus, group)}
+                          className={`py-2 px-2.5 rounded-md text-sm font-medium transition-all duration-150 w-full border
+                            ${hypertrophyFocus.includes(group) ? 'bg-orange-500 border-orange-500 text-white shadow-sm' : 'bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 hover:border-orange-400 dark:hover:border-orange-500 text-slate-700 dark:text-slate-200'}`}>
+                          {group}
+                        </button>
+                      ))}
                   </div>
-                )}
+                </>
+              )}
             </div>
           </div>
         </div>
         
         {(preferences.includeRunning && (preferences.includeStrength || preferences.includeHypertrophy)) && (
-            <div className="mb-8 md:col-span-2">
-                <label htmlFor="focusBalance" className="block text-base font-semibold text-slate-700 dark:text-slate-100 mb-2 flex items-center">
-                    <SlidersHorizontal size={20} className="mr-2 text-orange-500 dark:text-orange-400"/> Training Focus Balance: <span className="ml-2 font-normal text-orange-500 dark:text-orange-400">{getSliderLabel()}</span>
+            <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+                <label htmlFor="focusBalance" className={`${sectionTitleStyles} mb-2 flex items-center`}>
+                    <SlidersHorizontal size={18} className="mr-2 text-orange-500 dark:text-orange-400"/> Training Focus Balance: <span className="ml-2 font-normal text-orange-500 dark:text-orange-400">{getSliderLabel()}</span>
                 </label>
                 <div className="flex items-center space-x-3">
-                    <span className="text-sm text-slate-500 dark:text-slate-400">More Running</span>
-                    <input 
-                        type="range" 
-                        id="focusBalance"
-                        min="-1" 
-                        max="1" 
-                        step="0.1" 
-                        value={focusBalance} 
-                        onChange={(e) => setFocusBalance(parseFloat(e.target.value))}
-                        className="w-full h-2 bg-slate-300 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-orange-500 dark:accent-orange-400"
-                    />
-                    <span className="text-sm text-slate-500 dark:text-slate-400">More Lifting</span>
+                    <span className="text-sm text-slate-500 dark:text-slate-400">Running</span>
+                    <input type="range" id="focusBalance" min="-1" max="1" step="0.1" value={focusBalance} onChange={(e) => setFocusBalance(parseFloat(e.target.value))}
+                        className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-orange-500 dark:accent-orange-400"/>
+                    <span className="text-sm text-slate-500 dark:text-slate-400">Lifting</span>
                 </div>
             </div>
         )}
         
-        {error && <p className="text-red-500 dark:text-red-400 text-center mb-4">{error}</p>}
+        {error && <p className="text-red-500 dark:text-red-400 text-center mt-4">{error}</p>}
 
-        <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <button
-              onClick={handleGeneratePlan}
-              disabled={isLoading}
-              className="flex-1 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white font-bold py-4 px-6 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-102 focus:outline-none focus:ring-4 focus:ring-green-500 dark:focus:ring-green-400 focus:ring-opacity-50 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-              {isLoading ? (
-                <>
-                  <Loader2 size={24} className="animate-spin mr-3" />
-                  Building Your Plan...
-                </>
-              ) : (
-                <>
-                  <Sparkles size={24} className="mr-3" />
-                  Generate My Weekly Plan
-                </>
-              )}
+        <div className="flex flex-col sm:flex-row gap-3 mt-8">
+            <button onClick={handleGeneratePlan} disabled={isLoading}
+              className="flex-1 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-500 text-white font-bold py-3 px-6 rounded-lg text-base shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-4 focus:ring-green-500 dark:focus:ring-green-400 focus:ring-opacity-50 flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-green-500 dark:disabled:hover:bg-green-600">
+              {isLoading ? (<><Loader2 size={20} className="animate-spin mr-2" />Building Your Plan...</>) : (<><Sparkles size={20} className="mr-2" />Generate My Weekly Plan</>)}
             </button>
             {generatedWeeklyPlan && !isLoading && (
-                 <button
-                    onClick={handleSavePlan}
-                    className="flex-1 bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-102 focus:outline-none focus:ring-4 focus:ring-blue-500 dark:focus:ring-blue-400 focus:ring-opacity-50 flex items-center justify-center"
-                >
-                    <Save size={24} className="mr-3" />
-                    Save This Plan
+                 <button onClick={handleSavePlan} className="flex-1 bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-lg text-base shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-4 focus:ring-blue-500 dark:focus:ring-blue-400 focus:ring-opacity-50 flex items-center justify-center">
+                    <Save size={20} className="mr-2" />Save This Plan
                 </button>
             )}
         </div>
@@ -1059,24 +1125,24 @@ const HomePage = ({ navigateTo, addSavedPlan }) => {
 
       {(!isLoading && generatedWeeklyPlan) && (
         <div className="mt-12">
-          <h2 className="text-4xl font-extrabold text-center mb-10 tracking-tight text-slate-900 dark:text-slate-100">
+          <h2 className="text-3xl font-extrabold text-center mb-8 tracking-tight text-slate-900 dark:text-slate-100">
             Your AI-Generated Weekly Hybrid Plan
           </h2>
-          <div className="space-y-8"> 
+          <div className="space-y-6"> 
             {generatedWeeklyPlan.map((dayPlan) => (
               <DayCard key={dayPlan.day} dayPlan={dayPlan} handleGenerateMoreExercises={handleGenerateMoreExercises} currentInputs={currentInputs} />
             ))}
           </div>
-           <p className="text-center mt-10 text-slate-600 dark:text-slate-400 text-sm max-w-2xl mx-auto">
-            <strong>Important:</strong> This is a sample plan. Adjust intensity, volume, exercise selection, and rest based on your current fitness level, experience, and how your body feels. Always prioritize proper form and listen to your body. Consider consulting with a qualified coach or healthcare professional.
+           <p className="text-center mt-8 text-slate-600 dark:text-slate-400 text-xs max-w-2xl mx-auto">
+            <strong>Disclaimer:</strong> This is an AI-generated sample plan. Adjust intensity, volume, and exercises based on your experience and how you feel. Prioritize proper form and consult a professional if needed.
           </p>
         </div>
       )}
       
       {(!isLoading && !generatedWeeklyPlan && !error && !isLoading) && ( 
-         <div className="mt-12 text-center p-8 bg-white dark:bg-slate-800 rounded-xl shadow-xl">
-            <CalendarDays size={48} className="mx-auto text-orange-500 dark:text-orange-400 mb-4" />
-            <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-2">Ready to Build Your Plan?</h3>
+         <div className="mt-12 text-center p-8 bg-white dark:bg-slate-800/50 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
+            <CalendarDays size={40} className="mx-auto text-orange-500 dark:text-orange-400 mb-3" />
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-1">Ready to Build Your Plan?</h3>
             <p className="text-slate-600 dark:text-slate-400 max-w-md mx-auto">
                 Select your preferences above and let our AI craft a tailored hybrid training schedule for you.
             </p>
@@ -1086,7 +1152,6 @@ const HomePage = ({ navigateTo, addSavedPlan }) => {
   );
 };
 
-// Saved Workouts Page Component
 const SavedWorkoutsPage = ({ savedPlans, navigateTo, deleteSavedPlan }) => {
     const [viewingPlan, setViewingPlan] = useState(null);
     const [tempCurrentInputs, setTempCurrentInputs] = useState(null); 
@@ -1104,22 +1169,20 @@ const SavedWorkoutsPage = ({ savedPlans, navigateTo, deleteSavedPlan }) => {
     if (viewingPlan) {
         return (
             <div className="max-w-4xl mx-auto">
-                 <button
-                    onClick={() => {setViewingPlan(null); setTempCurrentInputs(null);}}
-                    className="mb-8 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-orange-500 dark:bg-orange-600 hover:bg-orange-600 dark:hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-                >
+                 <button onClick={() => {setViewingPlan(null); setTempCurrentInputs(null);}}
+                    className="mb-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-orange-500 dark:bg-orange-600 hover:bg-orange-600 dark:hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
                     <ChevronLeft size={20} className="mr-2" />
                     Back to Saved Plans
                 </button>
-                <h2 className="text-3xl font-extrabold text-slate-900 dark:text-slate-100 mb-6">{viewingPlan.name}</h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-2 text-sm">Saved on: {new Date(viewingPlan.dateSaved).toLocaleDateString()}</p>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">
-                    Original Inputs: Sport - {viewingPlan.inputs.sport || 'None'}, Running Goal - {viewingPlan.inputs.runningGoal || 'None'}, 
-                    Strength - {viewingPlan.inputs.strengthFocus?.join(', ') || 'None'}, 
-                    Hypertrophy - {viewingPlan.inputs.hypertrophyFocus?.join(', ') || 'None'},
-                    Balance - {viewingPlan.inputs.focusBalance < -0.3 ? "Running" : viewingPlan.inputs.focusBalance > 0.3 ? "Lifting" : "Balanced"}
-                </p>
-                <div className="space-y-8">
+                <h2 className="text-3xl font-extrabold text-slate-900 dark:text-slate-100 mb-2">{viewingPlan.name}</h2>
+                <div className="mb-6 p-4 bg-slate-100 dark:bg-slate-800/50 rounded-lg text-sm text-slate-600 dark:text-slate-400">
+                    <p className="font-semibold">Original Inputs:</p>
+                    <p>Sport: <span className="font-normal">{viewingPlan.inputs.sport || 'None'}</span></p>
+                    <p>Running Goal: <span className="font-normal">{viewingPlan.inputs.runningGoal || 'None'}</span></p>
+                    <p>Strength Focus: <span className="font-normal">{viewingPlan.inputs.strengthFocus?.join(', ') || 'None'}</span></p>
+                    <p>Hypertrophy Focus: <span className="font-normal">{viewingPlan.inputs.hypertrophyFocus?.join(', ') || 'None'}</span></p>
+                </div>
+                <div className="space-y-6">
                     {viewingPlan.plan.map(dayPlan => (
                         <DayCard key={dayPlan.day} dayPlan={dayPlan} handleGenerateMoreExercises={dummyGenerateMoreHandler} currentInputs={tempCurrentInputs} />
                     ))}
@@ -1132,29 +1195,30 @@ const SavedWorkoutsPage = ({ savedPlans, navigateTo, deleteSavedPlan }) => {
         <div>
             <h2 className="text-4xl font-extrabold mb-8 text-center tracking-tight text-slate-900 dark:text-slate-100">Saved Workout Plans</h2>
             {savedPlans.length === 0 ? (
-                <p className="text-center text-slate-600 dark:text-slate-400 text-xl">You haven't saved any workout plans yet.</p>
+                <div className="text-center p-8 bg-white dark:bg-slate-800/50 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
+                    <Save size={40} className="mx-auto text-orange-500 dark:text-orange-400 mb-3" />
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-1">No Saved Plans Yet</h3>
+                    <p className="text-slate-600 dark:text-slate-400 max-w-md mx-auto">
+                        Once you generate a plan you like, save it to find it here later.
+                    </p>
+                </div>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {savedPlans.map(plan => (
-                        <div key={plan.id} className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg hover:shadow-orange-500/30 dark:hover:shadow-orange-400/30 transition-shadow flex flex-col justify-between">
+                        <div key={plan.id} className="bg-white dark:bg-slate-900 p-5 rounded-xl shadow-lg hover:shadow-orange-500/20 dark:hover:shadow-orange-400/20 border border-slate-200 dark:border-slate-800 transition-shadow flex flex-col justify-between">
                             <div>
-                                <h3 className="text-xl font-bold text-orange-500 dark:text-orange-400 mb-2">{plan.name}</h3>
-                                <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Sport: {plan.inputs.sport || 'N/A'}</p>
-                                <p className="text-sm text-slate-600 dark:text-slate-400 mb-1">Running Goal: {plan.inputs.runningGoal || 'N/A'}</p>
-                                <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">Saved: {new Date(plan.dateSaved).toLocaleDateString()}</p>
+                                <h3 className="text-lg font-bold text-orange-500 dark:text-orange-400 mb-2 truncate">{plan.name}</h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Sport: <span className="font-normal">{plan.inputs.sport || 'N/A'}</span></p>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">Saved: {new Date(plan.dateSaved).toLocaleDateString()}</p>
                             </div>
                             <div className="mt-4 flex space-x-2">
-                                <button
-                                    onClick={() => handleViewPlan(plan)}
-                                    className="flex-1 bg-blue-500 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md text-sm transition-colors"
-                                >
-                                    View Plan
+                                <button onClick={() => handleViewPlan(plan)}
+                                    className="flex-1 bg-blue-500 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-md text-sm transition-colors">
+                                    View
                                 </button>
-                                <button
-                                    onClick={() => deleteSavedPlan(plan.id)}
-                                    className="bg-red-500 dark:bg-red-600 hover:bg-red-600 dark:hover:bg-red-700 text-white font-semibold py-2 px-3 rounded-md text-sm transition-colors"
-                                >
-                                    <Trash2 size={18}/>
+                                <button onClick={() => deleteSavedPlan(plan.id)}
+                                    className="bg-red-500 dark:bg-red-600 hover:bg-red-600 dark:hover:bg-red-500 text-white font-semibold py-2 px-3 rounded-md text-sm transition-colors">
+                                    <Trash2 size={16}/>
                                 </button>
                             </div>
                         </div>
@@ -1165,7 +1229,6 @@ const SavedWorkoutsPage = ({ savedPlans, navigateTo, deleteSavedPlan }) => {
     );
 };
 
-// Feedback Page Component
 const FeedbackPage = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -1173,6 +1236,7 @@ const FeedbackPage = () => {
     const [message, setMessage] = useState('');
     const [rating, setRating] = useState(0);
     const [submitted, setSubmitted] = useState(false);
+    const inputStyles = "mt-1 block w-full bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 dark:focus:ring-orange-400 focus:border-orange-500 dark:focus:border-orange-400 sm:text-sm text-slate-900 dark:text-slate-100 transition";
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -1185,10 +1249,10 @@ const FeedbackPage = () => {
 
     if (submitted) {
         return (
-            <div className="max-w-lg mx-auto text-center py-12">
-                <CheckCircle size={64} className="text-green-500 mx-auto mb-4" />
-                <h2 className="text-3xl font-extrabold text-slate-900 dark:text-slate-100 mb-3">Thank You!</h2>
-                <p className="text-slate-600 dark:text-slate-400 text-lg">Your feedback has been received. We appreciate you taking the time to help us improve.</p>
+            <div className="max-w-md mx-auto text-center py-12">
+                <CheckCircle size={56} className="text-green-500 mx-auto mb-4" />
+                <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 mb-2">Thank You!</h2>
+                <p className="text-slate-600 dark:text-slate-400">Your feedback has been received. We appreciate you taking the time to help us improve.</p>
             </div>
         )
     }
@@ -1196,21 +1260,20 @@ const FeedbackPage = () => {
     return (
         <div className="max-w-lg mx-auto">
             <h2 className="text-4xl font-extrabold mb-8 text-center tracking-tight text-slate-900 dark:text-slate-100">Provide Feedback</h2>
-            <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-slate-800 p-8 rounded-xl shadow-2xl">
-                <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300">Name (Optional)</label>
-                    <input type="text" name="name" id="name" value={name} onChange={(e) => setName(e.target.value)}
-                           className="mt-1 block w-full bg-slate-100 dark:bg-slate-700 border-slate-300 dark:border-slate-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 dark:focus:ring-orange-400 focus:border-orange-500 dark:focus:border-orange-400 sm:text-sm text-slate-900 dark:text-slate-100" />
-                </div>
-                <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300">Email (Optional)</label>
-                    <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}
-                           className="mt-1 block w-full bg-slate-100 dark:bg-slate-700 border-slate-300 dark:border-slate-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 dark:focus:ring-orange-400 focus:border-orange-500 dark:focus:border-orange-400 sm:text-sm text-slate-900 dark:text-slate-100" />
+            <form onSubmit={handleSubmit} className="space-y-5 bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300">Name (Optional)</label>
+                        <input type="text" name="name" id="name" value={name} onChange={(e) => setName(e.target.value)} className={inputStyles} />
+                    </div>
+                    <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300">Email (Optional)</label>
+                        <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className={inputStyles} />
+                    </div>
                 </div>
                 <div>
                     <label htmlFor="feedbackType" className="block text-sm font-medium text-slate-700 dark:text-slate-300">Feedback Type</label>
-                    <select id="feedbackType" name="feedbackType" value={feedbackType} onChange={(e) => setFeedbackType(e.target.value)}
-                            className="mt-1 block w-full bg-slate-100 dark:bg-slate-700 border-slate-300 dark:border-slate-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 dark:focus:ring-orange-400 focus:border-orange-500 dark:focus:border-orange-400 sm:text-sm text-slate-900 dark:text-slate-100">
+                    <select id="feedbackType" name="feedbackType" value={feedbackType} onChange={(e) => setFeedbackType(e.target.value)} className={inputStyles}>
                         <option value="general">General Feedback</option>
                         <option value="bug">Bug Report</option>
                         <option value="feature">Feature Request</option>
@@ -1221,23 +1284,18 @@ const FeedbackPage = () => {
                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Overall Rating (Optional)</label>
                     <div className="flex space-x-1">
                         {[1, 2, 3, 4, 5].map(star => (
-                            <Star 
-                                key={star} 
-                                size={28} 
-                                className={`cursor-pointer transition-colors ${rating >= star ? 'text-yellow-400 fill-yellow-400' : 'text-slate-400 dark:text-slate-600 hover:text-yellow-300'}`}
-                                onClick={() => setRating(star)}
-                            />
+                            <Star key={star} size={28} className={`cursor-pointer transition-colors ${rating >= star ? 'text-yellow-400 fill-yellow-400' : 'text-slate-300 dark:text-slate-600 hover:text-yellow-300'}`}
+                                onClick={() => setRating(star)} />
                         ))}
                     </div>
                 </div>
                 <div>
                     <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300">Message</label>
-                    <textarea id="message" name="message" rows="4" value={message} onChange={(e) => setMessage(e.target.value)} required
-                              className="mt-1 block w-full bg-slate-100 dark:bg-slate-700 border-slate-300 dark:border-slate-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-orange-500 dark:focus:ring-orange-400 focus:border-orange-500 dark:focus:border-orange-400 sm:text-sm text-slate-900 dark:text-slate-100"></textarea>
+                    <textarea id="message" name="message" rows="4" value={message} onChange={(e) => setMessage(e.target.value)} required className={inputStyles}></textarea>
                 </div>
                 <div>
                     <button type="submit"
-                            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 dark:bg-orange-600 hover:bg-orange-600 dark:hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-100 dark:focus:ring-offset-slate-800 focus:ring-orange-500 transition-colors">
+                            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 dark:bg-orange-600 hover:bg-orange-600 dark:hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-100 dark:focus:ring-offset-slate-900 focus:ring-orange-500 transition-colors">
                         Submit Feedback
                     </button>
                 </div>
@@ -1247,39 +1305,29 @@ const FeedbackPage = () => {
 };
 
 
-// Day Card Component to display daily plan
-const DayCard = ({ dayPlan, handleGenerateMoreExercises, currentInputs }) => { // Added props
+const DayCard = ({ dayPlan, handleGenerateMoreExercises, currentInputs }) => {
     const [isExpanded, setIsExpanded] = useState(true); 
     const [sessionExplanation, setSessionExplanation] = useState({ text: '', isLoading: false, error: '' });
-    const [exerciseDetails, setExerciseDetails] = useState({}); // Store details keyed by exercise name
+    const [exerciseDetails, setExerciseDetails] = useState({});
     const [exerciseDetailLoading, setExerciseDetailLoading] = useState({});
 
-
+    // This is a placeholder for a real API call.
     const fetchApiData = async (prompt) => {
-        const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
-        const apiKey = ""; // API key is handled by the environment
-        const apiUrl = '/.netlify/functions/generate';
-
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt: prompt })
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if(prompt.includes("explain how this specific workout")){
+                    resolve(`This "${dayPlan.activity}" session is designed to directly support your goals by... [AI generated explanation text about synergy between running and lifting for the specified goals would appear here]`);
+                } else if(prompt.includes("Explain the exercise")){
+                     resolve(`This is a brief AI-generated explanation for the selected exercise, covering benefits and common mistakes. [Details for ${prompt.split('"')[1]} would appear here]`);
+                } else {
+                    reject(new Error("Unknown prompt type"));
+                }
+            }, 800);
         });
-
-        if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
-        
-        const result = await response.json();
-        if (result.candidates && result.candidates.length > 0 &&
-            result.candidates[0].content && result.candidates[0].content.parts &&
-            result.candidates[0].content.parts.length > 0) {
-            return result.candidates[0].content.parts[0].text;
-        } else {
-            throw new Error("Unexpected API response structure or content missing.");
-        }
     };
     
     const handleExplainSession = async () => {
-        if(sessionExplanation.text) { // Simple toggle if already fetched
+        if(sessionExplanation.text) {
              setSessionExplanation(prev => ({...prev, text: ''}));
              return;
         }
@@ -1291,13 +1339,13 @@ const DayCard = ({ dayPlan, handleGenerateMoreExercises, currentInputs }) => { /
             setSessionExplanation({ text: text.trim(), isLoading: false, error: '' });
         } catch (error) {
             console.error("Error fetching session explanation:", error);
-            setSessionExplanation({ text: '', isLoading: false, error: 'Failed to load explanation. Try again.' });
+            setSessionExplanation({ text: '', isLoading: false, error: 'Failed to load explanation. Please try again.' });
         }
     };
 
 
     const fetchExerciseDetail = async (exerciseName) => {
-        if (exerciseDetails[exerciseName] && exerciseDetails[exerciseName].text) { // If already loaded and has text
+        if (exerciseDetails[exerciseName] && exerciseDetails[exerciseName].text) {
             setExerciseDetails(prev => ({ ...prev, [exerciseName]: { ...prev[exerciseName], isVisible: !prev[exerciseName].isVisible }}));
             return;
         }
@@ -1309,7 +1357,6 @@ const DayCard = ({ dayPlan, handleGenerateMoreExercises, currentInputs }) => { /
             const text = await fetchApiData(prompt);
             setExerciseDetails(prev => ({ ...prev, [exerciseName]: { text: text.trim(), error: '', isVisible: true } }));
         } catch (error) {
-            console.error(`Error fetching details for ${exerciseName}:`, error);
             setExerciseDetails(prev => ({ ...prev, [exerciseName]: { text: '', error: 'Failed to load details.', isVisible: true } }));
         } finally {
             setExerciseDetailLoading(prev => ({ ...prev, [exerciseName]: false }));
@@ -1322,50 +1369,37 @@ const DayCard = ({ dayPlan, handleGenerateMoreExercises, currentInputs }) => { /
         const lowerActivity = activity.toLowerCase();
         if (lowerActivity.includes('strength') || lowerActivity.includes('hypertrophy')) return <Weight className="text-orange-500 dark:text-orange-400" />;
         if (lowerActivity.includes('run')) return <Footprints className="text-blue-500 dark:text-blue-400" />; 
-        if (lowerActivity.includes('flexibility') || lowerActivity.includes('yoga') || lowerActivity.includes('stretch') || lowerActivity.includes('mobility')) return <StretchHorizontal className="text-green-500 dark:text-green-400" />;
-        if (lowerActivity.includes('rest') || lowerActivity.includes('active recovery')) return <Moon className="text-purple-500 dark:text-purple-400" />;
-        
-        const activityFirstWord = activity.split(':')[0].trim().toLowerCase(); 
-        const sportNameMatch = categorizedSportsOptions.some(cat => 
-            cat.options.some(sportOption => 
-                sportOption.toLowerCase() === activityFirstWord || 
-                activity.toLowerCase().includes(sportOption.toLowerCase()) 
-            )
-        );
-        if (sportNameMatch || lowerActivity.includes('combat') || lowerActivity.includes('sport specific')) return <ShieldCheck className="text-red-500 dark:text-red-400" />;
+        if (lowerActivity.includes('mobility') || lowerActivity.includes('yoga')) return <StretchHorizontal className="text-green-500 dark:text-green-400" />;
+        if (lowerActivity.includes('rest')) return <Moon className="text-purple-500 dark:text-purple-400" />;
+        if (lowerActivity.includes('sport') || ['soccer', 'basketball', 'combat'].some(s => lowerActivity.includes(s))) return <ShieldCheck className="text-red-500 dark:text-red-400" />;
         return <Dumbbell className="text-slate-500 dark:text-slate-400" />;
     };
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-xl shadow-2xl overflow-hidden"> 
-      <div className="p-6 md:p-8"> 
-        <div className="flex items-start justify-between mb-4"> 
+    <div className="bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 overflow-hidden"> 
+      <div className="p-5"> 
+        <div className="flex items-start justify-between mb-3"> 
           <div>
-            <h3 className="text-3xl font-bold text-orange-500 dark:text-orange-400">{dayPlan.day}</h3> 
-             <h4 className="text-2xl font-semibold text-slate-800 dark:text-slate-100 mb-1 mt-1">{dayPlan.activity}</h4> 
+            <h3 className="text-2xl font-bold text-orange-500 dark:text-orange-400">{dayPlan.day}</h3> 
+             <h4 className="text-xl font-semibold text-slate-800 dark:text-slate-100 mt-1">{dayPlan.activity}</h4> 
           </div>
-          <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-slate-100 dark:bg-slate-700 rounded-full shadow-md"> 
-            {React.cloneElement(getIconForActivity(dayPlan.activity), {size: 28})} 
+          <div className="w-11 h-11 flex-shrink-0 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-full shadow-inner"> 
+            {React.cloneElement(getIconForActivity(dayPlan.activity), {size: 24})} 
           </div>
         </div>
         
         <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 whitespace-pre-line">{dayPlan.details}</p> 
 
-        {/* Gemini Session Explainer */}
         { !dayPlan.activity.toLowerCase().includes('rest') && currentInputs &&
-            <div className="my-4">
-                <button
-                    onClick={handleExplainSession}
-                    disabled={sessionExplanation.isLoading}
-                    className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md shadow-sm text-slate-700 dark:text-slate-200 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 disabled:opacity-50"
-                >
+            <div className="mb-4">
+                <button onClick={handleExplainSession} disabled={sessionExplanation.isLoading} className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-slate-700 dark:text-slate-200 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 disabled:opacity-50 transition">
                     {sessionExplanation.isLoading ? <Loader2 size={16} className="animate-spin mr-2" /> : <HelpCircle size={16} className="mr-2" />}
-                    Understand This Session
+                    Explain Session
                 </button>
                 {sessionExplanation.text && (
-                    <div className="mt-2 p-3 bg-blue-100 dark:bg-blue-900/30 border border-blue-300 dark:border-blue-700 rounded-md text-sm text-blue-800 dark:text-blue-200 relative">
+                    <div className="mt-2 p-3 bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-500 text-sm text-blue-800 dark:text-blue-200 relative">
                         <p>{sessionExplanation.text}</p>
-                         <button onClick={() => setSessionExplanation({text: '', isLoading: false, error: ''})} className="absolute top-1 right-1 text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-200">
+                         <button onClick={() => setSessionExplanation({text: '', isLoading: false, error: ''})} className="absolute top-1 right-1 p-1 rounded-full hover:bg-blue-200/50 dark:hover:bg-blue-700/50 text-blue-500 dark:text-blue-400">
                              <X size={14}/>
                         </button>
                     </div>
@@ -1373,100 +1407,78 @@ const DayCard = ({ dayPlan, handleGenerateMoreExercises, currentInputs }) => { /
                  {sessionExplanation.error && <p className="mt-2 text-xs text-red-500 dark:text-red-400">{sessionExplanation.error}</p>}
             </div>
         }
+      </div>
         
-        <div className="mt-4 border-t border-slate-200 dark:border-slate-700 pt-4">
-            <button 
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center justify-between w-full text-left text-lg font-semibold text-slate-700 dark:text-slate-200 hover:text-orange-500 dark:hover:text-orange-400 transition-colors mb-3"
-            >
-                <span>Training Protocol</span>
-                {isExpanded ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
-            </button>
+      <div className="bg-slate-50 dark:bg-slate-800/50 px-5 py-4 border-t border-slate-200 dark:border-slate-800">
+          <button onClick={() => setIsExpanded(!isExpanded)} className="flex items-center justify-between w-full text-left text-base font-semibold text-slate-700 dark:text-slate-200 hover:text-orange-500 dark:hover:text-orange-400 transition-colors">
+              <span>Training Protocol</span>
+              {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+          </button>
 
-            {isExpanded && dayPlan.trainingProtocol && dayPlan.trainingProtocol.length > 0 && (
-                <div className="space-y-4">
-                    {dayPlan.trainingProtocol.map((protocol, protocolIndex) => (
-                        <div key={protocolIndex} className="pl-2 border-l-2 border-orange-500/50 dark:border-orange-400/50">
-                            <div className="flex justify-between items-center mb-1">
-                                <h5 className="text-md font-semibold text-orange-500 dark:text-orange-400">{protocol.protocolStep}</h5>
-                                { protocol.protocolStep.toLowerCase().includes('main workout') && handleGenerateMoreExercises && currentInputs && 
-                                    <button 
-                                        onClick={() => handleGenerateMoreExercises(dayPlan.day, protocol.protocolStep)}
-                                        className="text-xs text-blue-500 dark:text-blue-400 hover:underline flex items-center"
-                                        title="Generate more exercises for this step"
-                                    >
-                                        <RefreshCw size={14} className="mr-1"/> More
-                                    </button>
-                                }
-                            </div>
-                            <p className="text-slate-600 dark:text-slate-300 text-sm mb-2 whitespace-pre-line">{protocol.description}</p>
-                            {protocol.items && protocol.items.length > 0 && (
-                                <ul className="space-y-2 text-sm list-inside list-none pl-2"> 
-                                    {protocol.items.map((ex, index) => (
-                                        <li key={index} className="p-2 bg-slate-100 dark:bg-slate-700/30 rounded-md shadow-sm"> 
-                                            <div className="flex justify-between items-center">
-                                                <span className="font-medium text-slate-700 dark:text-slate-100">{ex.name}</span>
-                                                <div className="flex items-center space-x-2">
-                                                    {ex.type && <span className="text-xs bg-slate-200 dark:bg-slate-600 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-full">{ex.type}</span>}
-                                                    {ex.name !== "No more unique exercises found for this selection." && 
-                                                        <button 
-                                                            onClick={() => fetchExerciseDetail(ex.name)} 
-                                                            title={`Get details for ${ex.name}`}
-                                                            className="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300"
-                                                        >
-                                                            {exerciseDetailLoading[ex.name] ? <Loader2 size={16} className="animate-spin"/> : <Info size={16}/>}
-                                                        </button>
-                                                    }
-                                                </div>
-                                            </div>
-                                            {(ex.sets || ex.duration || ex.details) && (
-                                                <p className="text-slate-500 dark:text-slate-400 mt-0.5 text-xs">
-                                                    {ex.sets && ex.reps && `${ex.sets} sets of ${ex.reps} reps`}
-                                                    {ex.duration && `${ex.duration}`}
-                                                    {ex.details && !ex.sets && !ex.duration && `${ex.details}`}
-                                                    {ex.rest && <span className="ml-2">(Rest: {ex.rest})</span>}
-                                                </p>
-                                            )}
-                                            {ex.note && <p className="text-xs text-slate-400 dark:text-slate-500 italic mt-0.5">({ex.note})</p>}
-                                            {/* Display Exercise Details */}
-                                            {exerciseDetails[ex.name]?.isVisible && (
-                                                <div className="mt-2 p-2 text-xs bg-slate-200 dark:bg-slate-700 rounded">
-                                                    {exerciseDetails[ex.name].error ? 
-                                                        <p className="text-red-500 dark:text-red-400">{exerciseDetails[ex.name].error}</p> : 
-                                                        <p className="text-slate-700 dark:text-slate-300 whitespace-pre-line">{exerciseDetails[ex.name].text}</p>
-                                                    }
-                                                </div>
-                                            )}
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
-                    ))}
-                </div>
-            )}
-        </div>
+          {isExpanded && dayPlan.trainingProtocol && dayPlan.trainingProtocol.length > 0 && (
+              <div className="mt-4 space-y-4">
+                  {dayPlan.trainingProtocol.map((protocol, protocolIndex) => (
+                      <div key={protocolIndex}>
+                          <div className="flex justify-between items-center mb-1">
+                              <h5 className="text-sm font-semibold text-orange-500 dark:text-orange-400">{protocol.protocolStep}</h5>
+                              { protocol.protocolStep.toLowerCase().includes('main workout') && handleGenerateMoreExercises && currentInputs && 
+                                  <button onClick={() => handleGenerateMoreExercises(dayPlan.day, protocol.protocolStep)} className="text-xs text-blue-500 dark:text-blue-400 hover:underline flex items-center" title="Generate more exercises">
+                                      <RefreshCw size={12} className="mr-1"/> More
+                                  </button>
+                              }
+                          </div>
+                          <p className="text-slate-600 dark:text-slate-400 text-xs mb-2 whitespace-pre-line">{protocol.description}</p>
+                          {protocol.items && protocol.items.length > 0 && (
+                              <ul className="space-y-2 text-sm"> 
+                                  {protocol.items.map((ex, index) => (
+                                      <li key={index} className="p-2.5 bg-white dark:bg-slate-700/40 rounded-lg shadow-sm"> 
+                                          <div className="flex justify-between items-center">
+                                              <span className="font-medium text-slate-800 dark:text-slate-100 text-sm">{ex.name}</span>
+                                              <div className="flex items-center space-x-2">
+                                                  {ex.type && <span className="text-[10px] bg-slate-200 dark:bg-slate-600 text-slate-600 dark:text-slate-300 px-1.5 py-0.5 rounded-full font-medium uppercase tracking-wider">{ex.type}</span>}
+                                                  {ex.name !== "No more unique exercises found." && 
+                                                      <button onClick={() => fetchExerciseDetail(ex.name)} title={`Info for ${ex.name}`} className="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300">
+                                                          {exerciseDetailLoading[ex.name] ? <Loader2 size={16} className="animate-spin"/> : <Info size={16}/>}
+                                                      </button>
+                                                  }
+                                              </div>
+                                          </div>
+                                          {(ex.sets || ex.duration || ex.details) && (<p className="text-slate-500 dark:text-slate-400 mt-0.5 text-xs">
+                                                  {ex.sets && ex.reps && `${ex.sets} sets of ${ex.reps} reps`}
+                                                  {ex.duration && `${ex.duration}`}
+                                                  {ex.rest && <span className="ml-2">({ex.rest})</span>}
+                                              </p>)}
+                                          {ex.note && <p className="text-xs text-slate-400 dark:text-slate-500 italic mt-0.5">({ex.note})</p>}
+                                          {exerciseDetails[ex.name]?.isVisible && (<div className="mt-2 p-2 text-xs bg-slate-100 dark:bg-slate-800 rounded">
+                                                  {exerciseDetails[ex.name].error ? <p className="text-red-500 dark:text-red-400">{exerciseDetails[ex.name].error}</p> : 
+                                                  <p className="text-slate-700 dark:text-slate-300 whitespace-pre-line">{exerciseDetails[ex.name].text}</p>}
+                                          </div>)}
+                                      </li>
+                                  ))}
+                              </ul>
+                          )}
+                      </div>
+                  ))}
+              </div>
+          )}
       </div>
     </div>
   );
 };
 
-
-// Footer
 const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-8 text-center mt-12">
+    <footer className="bg-transparent py-6 text-center mt-8">
       <p className="text-slate-500 dark:text-slate-400 text-sm">
         &copy; {new Date().getFullYear()} Bansthetics. All Rights Reserved.
       </p>
       <p className="text-slate-400 dark:text-slate-600 text-xs mt-1">
-        Engineering by BAnsMax
+        Engineered by BAnsMax
       </p>
     </footer>
   );
 };
 
-// CheckCircle icon (simple SVG as lucide-react might not have it directly or for fallback)
 const CheckCircle = ({ size = 24, className = "" }) => (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
